@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../../../app/assets/images/napflix_logo.png';
 import SignupFooter from "./signup_footer";
 
 
@@ -36,7 +35,7 @@ class LoginForm extends React.Component {
             
             <div className='login-main'>
                 <header className='login-header'>
-                    <Link to='./' className='home-button'><img id="logo" src={logo} alt="Napflix" /></Link>
+                    <Link to='./' className='home-button'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
                 </header>
                 <div className='login-container'>
                         <h2>Sign In</h2>
