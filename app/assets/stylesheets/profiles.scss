@@ -1,0 +1,29 @@
+body {
+    background: black;
+}
+
+.profiles-container {
+    margin: 0 auto;
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.profiles-container h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.profiles-list {
+    display: flex;
+    justify-content: center;
+}
+
+.profiles-list img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+}
+

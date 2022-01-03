@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_195712) do
+ActiveRecord::Schema.define(version: 2022_01_03_193400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "user_id"], name: "index_profiles_on_name_and_user_id", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
