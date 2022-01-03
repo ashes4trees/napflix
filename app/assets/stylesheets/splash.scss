@@ -1,21 +1,22 @@
-body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 0;
-    color: white;
-}
+
 
 #logo {
     height: 50px;
     width: auto;
 }
-.splash-main, .login-main {
+.splash-main {
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%),
-        linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%),
+        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%),
+        linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%),
         url('netflix_bg.jpeg');
     background-position: left;
-    height: 100vh;
     width: auto;
+}
+
+
+.splash-main {
+    height: 700px;
+    border-bottom: 10px solid rgb(66, 66, 66);
 }
 
 .splash-header, .login-header {
@@ -29,7 +30,7 @@ body {
     align-items: center;
 }
 
-.btn, .login-btn, .signup-btn {
+.btn, .signup-btn {
     text-decoration: none;
     color: white;
     background: red;
@@ -37,10 +38,7 @@ body {
     border-radius: 4px;
 }
 
-.login-btn {
-    width: 80%;
-    margin-top: 10%;
-}
+
 
 .signup-btn {
     width: 100%;
@@ -96,24 +94,15 @@ body {
 
 .email-input {
     height: 96%;
-    width: 80%;
+    width: 100%;
     border-radius: 3px;
     border: none;
     outline: 0;
     position: relative;
-    color: gray;
-}
-
-.login-input {
-    width: 80%;
-    height: 50px;
-    border-radius: 3px;
-    border: none;
-    position: relative;
-    outline: 0;
-    background: rgba($color: #3f3e3e, $alpha: 1.0);
-    color: white;
-    margin: 10px;
+    color: black;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .signup-input {
@@ -125,34 +114,9 @@ body {
 }
 
 
-.login-container {
-    display: flex;
-    justify-content: center;
-    height: 80%;
 
-}
 
-.login-form {
-    background: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100%;
-    width: 30%;
-}
 
-.login-form h2 {
-    padding-top: 10px;
-    color: white;
-    font-size: 40px;
-    margin: 40px;
-}
-
-.login-form span {
-    margin: 40px;
-    color: gray;
-}
 
 .link-text {
     text-decoration: none;
@@ -161,7 +125,7 @@ body {
 }
  
 .form-content {
-    width: 100%;
+    width: 80%;
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -212,6 +176,56 @@ body {
 }
 
 
+.input-container, .signup-input-container {
+    position: relative;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.input-container label, .signup-input-container label {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(0, 24px) scale(1);
+    transform-origin: top left;
+    transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+    color: gray;
+    font-size: 14px;
+    line-height: 1;
+    left: 16px;
+}
+
+
+
+.signup-input-container, .login-input-container {
+    width: 100%
+}
+
+.input-container:focus-within label {
+  transform: translate(0, 5px) scale(0.8);
+}
+
+
+.signup-input-container:focus-within label {
+    transform: translate(0, 5px) scale(0.8);
+}
+
+
+.splash-footer {
+    color: gray;
+    background: black;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.splash-footer a {
+    text-decoration: none;
+    color: gray;
+    margin-top: 10px;
+}
 
 
 

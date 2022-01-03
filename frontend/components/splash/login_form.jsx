@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from '../../../app/assets/images/napflix_logo.png';
+import SignupFooter from "./signup_footer";
 
 
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "Email address",
-            password: "Password"
+            email: '',
+            password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -30,41 +31,52 @@ class LoginForm extends React.Component {
         const errors = this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
 
         return (
+            <div>
+
+            
             <div className='login-main'>
                 <header className='login-header'>
                     <Link to='./' className='home-button'><img id="logo" src={logo} alt="Napflix" /></Link>
                 </header>
                 <div className='login-container'>
-                    <div className='login-form'>
                         <h2>Sign In</h2>
-                        <ul className='error-list'>{errors}</ul>
+                        
                         <form className='form-content'>
-                            
+                                <div className='login-input-container'>
                                 <input
                                     className='login-input'
                                     type="text"
-                                    value={this.state.email}
+                                    
                                     onChange={this.handleInput('email')}
                                 />
-                            
-                                <input
-                                    className='login-input'
-                                    type="password"
-                                    value={this.state.password}
-                                    onChange={this.handleInput('password')}
-                                />
-                            
+                                <label>Email address</label>
+
+                                </div>
+                                
+                                <div className='login-input-container'>
+                                    <input
+                                        className='login-input'
+                                        type="password"
+                                        onChange={this.handleInput('password')}
+                                    />
+                                    <label>Password</label>
+                                </div>
+                                
+                            <ul className='error-list'>{errors}</ul>
 
                             <button className='login-btn' onClick={this.handleSubmit}>Sign In</button>
                         </form>
 
                         <span>New to Napflix? <Link to={`/signup`} className='link-text'>Sign up now.</Link></span>
 
-                    </div>
                 </div>
+              
+               
+                
                
             </div>
-            
+                <SignupFooter />
+            </div>
         );
     }
 

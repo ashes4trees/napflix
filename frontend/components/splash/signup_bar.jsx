@@ -4,7 +4,7 @@ class SignupBar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: 'Email address',
+            email: '',
             password: ''
         }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,6 +25,7 @@ class SignupBar extends React.Component {
     }
     
     render() {
+        const filled = this.state.email === '' ? '' : 'filled';
         return (
             <div className='signup-container'>   
                 <section className='signup-text'>
@@ -34,13 +35,16 @@ class SignupBar extends React.Component {
                 </section>
                   
                 <form className='signup-bar-form' onSubmit={this.handleSubmit}>
-                    <input
-                        className='email-input'
-                        type="text"
-                        value={this.state.email}
-                        onClick={this.handleClick()}
-                        onChange={this.update('email')}
-                    />
+                    <div className='input-container'>
+                        <input
+                            className='email-input'
+                            type="text"
+                            onClick={this.handleClick()}
+                            onChange={this.update('email')}
+                        />
+                        <label className={filled}>Email address</label>
+                    </div>
+                    
                         
                     <button className='signup-bar-btn' type='submit'>Get Started &gt;</button>
                 </form>
