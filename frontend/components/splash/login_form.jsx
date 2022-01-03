@@ -11,6 +11,14 @@ class LoginForm extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+        const demoUser = {email: 'demo@user.com',
+            password: 'password'};
+        this.props.login(demoUser);
     }
 
     handleInput(type) {
@@ -22,7 +30,7 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.login(user);
     }
 
     render() {
@@ -64,6 +72,7 @@ class LoginForm extends React.Component {
                             <ul className='error-list'>{errors}</ul>
 
                             <button className='login-btn' onClick={this.handleSubmit}>Sign In</button>
+                            <button className='login-btn' onClick={this.handleDemo}>Sign In as Demo User</button>
                         </form>
 
                         <span>New to Napflix? <Link to={`/signup`} className='link-text'>Sign up now.</Link></span>
