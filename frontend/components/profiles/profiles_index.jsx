@@ -26,6 +26,10 @@ class ProfilesIndex extends React.Component {
                 <h1>Who's Watching?</h1>
                 <ul className='profiles-list'>
                     {profiles}
+                    <li className='add-profile-container'>
+                        <img id='add-profile' src={window.addProfile}/>
+                        <p>Add Profile</p>
+                    </li>
                 </ul> 
             </div>
             </div>

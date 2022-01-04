@@ -4,12 +4,13 @@ body {
 
 .profiles-container {
     margin: 0 auto;
-    width: 60%;
+    width: 50%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
+    padding-top: 10%;
 }
 
 .profiles-container h1 {
@@ -18,7 +19,7 @@ body {
 }
 .profiles-list {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .profiles-list img {
@@ -26,4 +27,22 @@ body {
     height: 150px;
     border-radius: 5px;
 }
+
+.profiles-home-btn img {
+    padding-top: 20px;
+
+}
+
+.profiles-list li p {
+    margin-top: 20px;
+    color: gray;
+}
+
+#add-profile {
+    color: gray;
+    width: 150px;
+    height: 150px;
+    opacity: 80%;
+}
+
 
