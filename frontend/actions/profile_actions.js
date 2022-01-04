@@ -18,7 +18,7 @@ export const fetchProfiles = userId => dispatch => (
         .then(profiles => dispatch(receiveUserProfiles(profiles)))
 );
 
-export const fetchCurrentProfile = profileId => dispatch => (
+export const fetchProfile = profileId => dispatch => (
     ProfileApiUtil.fetchProfile(profileId)
         .then(profile => dispatch(receiveCurrentProfile(profile)))
 );

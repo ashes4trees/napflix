@@ -9,6 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     text-align: center;
     padding-top: 10%;
 }
@@ -19,7 +20,12 @@ body {
 }
 .profiles-list {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.profiles-list li {
+    margin: 15px;
+    cursor: pointer;
 }
 
 .profiles-list img {
@@ -30,12 +36,14 @@ body {
 
 .profiles-home-btn img {
     padding-top: 20px;
+    cursor: pointer;
 
 }
 
 .profiles-list li p {
     margin-top: 20px;
     color: gray;
+
 }
 
 #add-profile {
@@ -43,6 +51,18 @@ body {
     width: 150px;
     height: 150px;
     opacity: 80%;
+}
+
+.manage {
+    color: gray;
+    background: none;
+    margin-top: 10%;
+    font-size: 24px;
+    border: 1px solid gray;
+    font-weight: 200;
+    padding: 10px;
+    width: max-content;
+    cursor: pointer;
 }
 
 

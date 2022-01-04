@@ -28,6 +28,7 @@ class Browse extends React.Component {
                 userId={this.props.currentUserId} 
                 fetchProfiles={this.props.fetchProfiles}
                 profiles={this.props.profiles}
+                switchProfile={this.props.switchProfile}
                 />
         )
     }

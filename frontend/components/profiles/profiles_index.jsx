@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 class ProfilesIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -14,9 +15,19 @@ class ProfilesIndex extends React.Component {
         
     }
 
+    handleClick(e) {
+        debugger
+        this.props.switchProfile(e.currentTarget.id);
+
+    }
+
     render() {
         const profiles = this.props.profiles.map(profile => (
-            <ProfileIndexItem key={profile.id} profile={profile}/>
+            <ProfileIndexItem 
+            key={profile.id} 
+            profile={profile}
+            handleClick={this.handleClick}
+            />
         ))
         const display = !this.props.show ? null : 
             <div>
@@ -31,7 +42,10 @@ class ProfilesIndex extends React.Component {
                         <p>Add Profile</p>
                     </li>
                 </ul> 
+                <p className='manage'>Manage Profiles</p>
             </div>
+
+            
             </div>
         if (!this.props.show) {
             return null;

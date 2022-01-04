@@ -8,6 +8,11 @@ class Api::ProfilesController < ApplicationController
         end
     end
 
+    def show
+        @profile = Profile.find(params[:id])
+        render :show
+    end
+
     def index
         user = User.find(params[:user_id])
         @profiles = user.profiles

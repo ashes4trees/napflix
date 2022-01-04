@@ -1,4 +1,4 @@
-import { RECEIVE_USER_PROFILES } from "../actions/profile_actions";
+import { RECEIVE_USER_PROFILES, RECEIVE_CURRENT_PROFILE } from "../actions/profile_actions";
 
 const profilesReducer = (state = {}, action) => {
     Object.freeze(state);

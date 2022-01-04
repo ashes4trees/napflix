@@ -1,2 +1,2 @@
-json.extract! profile, :id, :name
+json.extract! @profile, :id, :name
 
