@@ -32,6 +32,11 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.profiles-list img:hover {
+    border: 2px solid white;
 }
 
 .profiles-home-btn img {
@@ -47,10 +52,16 @@ body {
 }
 
 #add-profile {
+    box-sizing: border-box;
     color: gray;
     width: 150px;
     height: 150px;
     opacity: 80%;
+}
+
+#add-profile:hover {
+    background: white;
+    opacity: 90%
 }
 
 .manage {
