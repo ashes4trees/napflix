@@ -2,36 +2,25 @@
 import React from 'react';
 import ProfileIndexItem from './profile_index_item';
 import { Link } from 'react-router-dom';
+import BrowseContainer from '../browse/browse_container';
 
 
 class ProfilesIndex extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            show: props.show
-        }
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    componentDidMount() {
         this.props.fetchProfiles(this.props.userId)
-        
-    }
-
-    handleClick(e) {
-        this.props.switchProfile(e.currentTarget.id);
-        this.setState({show: false})
     }
 
     render() {
+        debugger
         const profiles = this.props.profiles.map(profile => (
             <ProfileIndexItem 
             key={profile.id} 
             profile={profile}
-            handleClick={this.handleClick}
+            handleClick={this.props.handleClick}
             />
         ))
-        const display = !this.state.show ? null : 
+        const display = 
             <div>
             <Link to='./' className='profiles-home-btn'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
 
@@ -49,9 +38,7 @@ class ProfilesIndex extends React.Component {
 
             
             </div>
-        if (!this.props.show) {
-            return null;
-        }
+
         return display
          
         
