@@ -1,5 +1,6 @@
 import React from "react";
 import SplashHeader from "./splash_header";
+import SignupFooter from './signup_footer';
 
 
 class SignupForm extends React.Component {
@@ -65,7 +66,12 @@ class SignupForm extends React.Component {
                         {/* <button onClick={this.demoUser}>Login as Demo User</button> */}
                     </form>
                 </div>
-                
+                <div className='signup-footer'>
+                    <a href="mailto:stephsoni18@gmail.com" target='_blank'>Questions? Email me!</a>
+                    <a href='https://github.com/ashes4trees/napflix' target='_blank'>GitHub</a>
+                    <a href='https://linkedin.com/in/steph-soni' target='_blank'>LinkedIn</a>
+
+                </div>
             </div>
         );
     }

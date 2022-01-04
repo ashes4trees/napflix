@@ -2,6 +2,7 @@ import * as ProfileApiUtil from '../util/profile_api_util';
 
 export const RECEIVE_CURRENT_PROFILE = 'RECEIVE_CURRENT_PROFILE';
 export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
+export const RECEIVE_NEW_PROFILE = 'CREATE_NEW_PROFILE';
 
 const receiveUserProfiles = profiles => ({
     type: RECEIVE_USER_PROFILES,
@@ -12,6 +13,16 @@ const receiveCurrentProfile = currentProfile => ({
     type: RECEIVE_CURRENT_PROFILE,
     currentProfile
 });
+
+const receiveNewProfile = profile => ({
+    type: RECEIVE_NEW_PROFILE,
+    profile
+})
+
+export const createProfile = profile => dispatch => (
+    ProfileApiUtil.createProfile(profile)
+        .then(profile => dispatch(receiveNewProfile(profile)))
+);
 
 export const fetchProfiles = userId => dispatch => (
     ProfileApiUtil.fetchProfiles(userId)
