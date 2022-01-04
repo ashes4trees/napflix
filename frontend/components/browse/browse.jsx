@@ -12,9 +12,29 @@ class Browse extends React.Component {
     }
 
     render () {
+
+        // const display = this.state.show ? 
+        //     <div className='profiles-index-main'>
+        //         <ProfilesIndex
+        //             show={this.state.show}
+        //             userId={this.props.currentUserId}
+        //             fetchProfiles={this.props.fetchProfiles}
+        //             profiles={this.props.profiles}
+        //             switchProfile={this.props.switchProfile}
+        //         />  
+        //     </div> : 
+        //     <div>
+        //         <SplashHeader />
+        //         <button onClick={this.props.logout}>LOGOUT</button>
+        //         <h1>MOVIES GO HERE...</h1>
+        //     </div>
+           
+        
         
         return (
-                <div>
+        
+
+                <div className='profiles-index-main'>
                 <ProfilesIndex
                     show={this.state.show}
                     userId={this.props.currentUserId}
