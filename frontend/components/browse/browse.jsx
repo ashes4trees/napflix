@@ -1,35 +1,32 @@
 import React from "react";
 import ProfilesIndex from "../profiles/profiles_index";
+import SplashHeader from '../splash/splash_header';
 
 class Browse extends React.Component {
     constructor(props) {
         super(props)
-        
+        const bool = this.props.currentProfile.id ? false : true;
         this.state = {
-            show: true
+            show: bool
         }
-        // this.showProfiles = this.showProfiles.bind(this);
     }
-
-    // showProfiles() {
-    //     const bool = this.props.currentProfileId ? false : true;
-    //     this.setState({ show: bool});
-    // }
-
-    // componentDidMount() {
-    //     this.showProfiles();
-    // }
 
     render () {
         
         return (
-            <ProfilesIndex 
-                show={this.state.show} 
-                userId={this.props.currentUserId} 
-                fetchProfiles={this.props.fetchProfiles}
-                profiles={this.props.profiles}
-                switchProfile={this.props.switchProfile}
+                <div>
+                <ProfilesIndex
+                    show={this.state.show}
+                    userId={this.props.currentUserId}
+                    fetchProfiles={this.props.fetchProfiles}
+                    profiles={this.props.profiles}
+                    switchProfile={this.props.switchProfile}
                 />
+                <SplashHeader/>
+                <button onClick={this.props.logout}>LOGOUT</button>
+                <h1>MOVIES GO HERE...</h1>
+                </div>
+                
         )
     }
 }

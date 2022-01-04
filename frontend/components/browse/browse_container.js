@@ -12,7 +12,8 @@ const mDTP = dispatch => ({
 
 const mSTP = state => ({
     currentUserId: state.session.id,
-    profiles: Object.values(state.entities.profiles)
+    profiles: Object.values(state.entities.profiles),
+    currentProfile: state.entities.currentProfile
 });
 
 export default connect(mSTP, mDTP)(Browse);

@@ -35,11 +35,14 @@
     padding-top: 10px;
     color: white;
     font-size: 40px;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px
 }
 
 .login-container span {
-    margin: 40px;
+    margin-top: 15px;
+    margin-left: 0;
     color: gray;
 }
 
@@ -89,7 +92,7 @@
     background: red;
     padding: 10px;
     border-radius: 4px;
-    width: 95%;
+    width: 98%;
     margin-top: 10%;
     height: 50px;
     cursor: pointer;

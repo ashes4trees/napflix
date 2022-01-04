@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 class ProfilesIndex extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            show: props.show
+        }
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -16,9 +19,8 @@ class ProfilesIndex extends React.Component {
     }
 
     handleClick(e) {
-        debugger
         this.props.switchProfile(e.currentTarget.id);
-
+        this.setState({show: false})
     }
 
     render() {
@@ -29,7 +31,7 @@ class ProfilesIndex extends React.Component {
             handleClick={this.handleClick}
             />
         ))
-        const display = !this.props.show ? null : 
+        const display = !this.state.show ? null : 
             <div>
             <Link to='./' className='profiles-home-btn'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
 
