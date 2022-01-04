@@ -2,7 +2,6 @@
 import React from 'react';
 import ProfileIndexItem from './profile_index_item';
 import { Link } from 'react-router-dom';
-import BrowseContainer from '../browse/browse_container';
 
 
 class ProfilesIndex extends React.Component {
@@ -12,7 +11,6 @@ class ProfilesIndex extends React.Component {
     }
 
     render() {
-        debugger
         const profiles = this.props.profiles.map(profile => (
             <ProfileIndexItem 
             key={profile.id} 

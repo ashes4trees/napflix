@@ -5,7 +5,7 @@ import Root from './components/root';
 import { logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-    let store;
+    let init;
     if (window.currentUser) {
         const preloadedState = {
             entities: {
@@ -13,16 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             session: { id: window.currentUser.id }
         };
-        store = configureStore(preloadedState);
+        init = configureStore(preloadedState);
+        
         delete window.currentUser;
     } else {
-        store = configureStore();
+        init = configureStore();
+        
     }
     const root = document.getElementById('root');
-    ReactDOM.render(<Root store={store}/>, root);
+    ReactDOM.render(<Root store={init.store} persistor={init.persistor}/>, root);
 
     // delete later!!
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    window.getState = init.store.getState;
+    window.dispatch = init.store.dispatch;
     window.logout = logout;
 });
