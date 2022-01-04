@@ -15,7 +15,7 @@ export const fetchProfile = profileId => (
 export const createProfile = profile => (
     $.ajax({
         method: 'POST',
-        url: `api/users/${profile.userId}/profiles`,
+        url: `api/users/${profile.user_id}/profiles`,
         data: { profile }
     })
 );

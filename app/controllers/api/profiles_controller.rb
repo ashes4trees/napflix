@@ -2,7 +2,8 @@ class Api::ProfilesController < ApplicationController
      def create
         @profile = Profile.new(profile_params)
         if @profile.save
-            render 'api/users/show'
+            # @profiles = Profile.find_by(user_id: @profile[:user_id])
+            render :show
         else   
             render json: ['Something went wrong'], status: 422
         end
@@ -22,7 +23,7 @@ class Api::ProfilesController < ApplicationController
     private 
 
     def profile_params
-        params.require(:profile).permit(:name)
+        params.require(:profile).permit(:name, :user_id)
     end
 
 end
