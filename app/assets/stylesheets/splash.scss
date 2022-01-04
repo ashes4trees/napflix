@@ -120,8 +120,9 @@
 }
  
 .signup-main {
+    background: white;
     color: black;
-     height: 100vh;
+    height: 100vh;
     width: auto;
 
 }
@@ -136,11 +137,13 @@
     align-items: flex-start;
     justify-content: space-evenly;
     margin: 0 auto;
+    
 }
 
 .signup-form-container h2 {
     font-size: 30px;
     margin-bottom: 15px;
+    
 }
 
 .signup-form-container p {

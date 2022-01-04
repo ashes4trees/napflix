@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import SignupForm from './signup_form';
 import { signup } from '../../actions/session_actions';
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
     errors: Object.values(state.errors.session),
-    email: state.email
+    email: ownProps.email
 });
 
 const mDTP = dispatch => ({
