@@ -44,7 +44,8 @@ class ProfilesIndex extends React.Component {
                         <p>Add Profile</p>
                     </li>
                 </ul> 
-                <p className='manage'>Manage Profiles</p>
+                <p 
+                    className='manage'>Manage Profiles</p>
             </div>
             </div> ) :
 
