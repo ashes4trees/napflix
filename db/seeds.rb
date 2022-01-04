@@ -14,4 +14,8 @@ User.create(email: 'penny@gmail.com', password: 'password')
 User.create(email: 'binx@gmail.com', password: 'password')
 User.create(email: 'max@gmail.com', password: 'password')
 
+Profile.create(user_id: User.first[:id], name: 'mom')
+Profile.create(user_id: User.first[:id], name: 'dad')
+Profile.create(user_id: User.first[:id], name: 'grandma')
+
 
