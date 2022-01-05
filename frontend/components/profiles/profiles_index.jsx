@@ -3,6 +3,7 @@ import React from 'react';
 import ProfileIndexItem from './profile_index_item';
 import { Link } from 'react-router-dom';
 import AddProfile from './add_profile';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 class ProfilesIndex extends React.Component {
@@ -24,16 +25,18 @@ class ProfilesIndex extends React.Component {
     }
 
     render() {
+        
         const profiles = this.props.profiles.map(profile => (
             <ProfileIndexItem 
             key={profile.id} 
             profile={profile}
             handleClick={this.props.handleClick}
+            pencil={'hidden'}
             />
         ))
         const display = this.state.show === 'profiles' ?
            ( <div>
-            <Link to='./' className='profiles-home-btn'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
+            <Link to='/' className='profiles-home-btn'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
 
             <div className='profiles-container'>
                 <h1>Who's Watching?</h1>
@@ -44,8 +47,9 @@ class ProfilesIndex extends React.Component {
                         <p>Add Profile</p>
                     </li>
                 </ul> 
-                <p 
-                    className='manage'>Manage Profiles</p>
+                <Link className='manage-link' to='/manageprofiles'>
+                    <p className='manage'>Manage Profiles</p>
+                </Link>
             </div>
             </div> ) :
 

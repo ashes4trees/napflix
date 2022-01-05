@@ -19,3 +19,11 @@ export const createProfile = profile => (
         data: { profile }
     })
 );
+
+export const updateProfile = profile => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/profiles/${profile.id}`,
+        data: { profile }
+    })
+)

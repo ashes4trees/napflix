@@ -9,6 +9,19 @@ class Api::ProfilesController < ApplicationController
         end
     end
 
+    
+    def update
+        @profile = selected_profile
+        if @profile && @profile.update_attributes(profile_params)
+        render :show
+        elsif !@profile
+        render json: ['Could not locate profile'], status: 400
+        else
+        render json: @profile.errors.full_messages, status: 401
+        end
+    end
+    
+
     def show
         @profile = Profile.find(params[:id])
         render :show

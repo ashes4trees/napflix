@@ -5,11 +5,13 @@ import LoginFormContainer from './splash/login_form_container';
 import BrowseContainer from "./browse/browse_container";
 import SignupFormContainer from './splash/signup_form_container';
 import Splash from "./splash/splash";
+import ManageProfilesContainer from '../components/profiles/manage_profiles_container';
 
 const App = () => (
     <div>
 
         <ProtectedRoute exact path='/browse' component={BrowseContainer} />
+        <ProtectedRoute exact path='/manageprofiles' component={ManageProfilesContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <AuthRoute exact path='/' component={Splash} />
