@@ -15,7 +15,6 @@ class ManageProfiles extends React.Component {
 
     handleProfileClick(e) {
         this.setState({show: 'edit form', profileId: e.currentTarget.id });
-        // location.reload();
     }
 
     render () {
@@ -45,7 +44,11 @@ class ManageProfiles extends React.Component {
                 </div>
             </div> 
         ) : (
-            <EditProfile profileId={this.state.profileId}/>
+            <EditProfile
+            editProfile={this.props.editProfile}
+            profileId={this.state.profileId}
+            updateProfile={this.props.updateProfile}
+            fetchProfile={this.props.fetchProfile}/>
         )
         
             return (

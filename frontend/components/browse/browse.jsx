@@ -5,7 +5,7 @@ import SplashHeader from '../splash/splash_header';
 class Browse extends React.Component {
     constructor(props) {
         super(props)
-        const bool = this.props.currentProfile.id ? false : true;
+        const bool = this.props.currentProfile ? false : true;
         this.state = {
             showProfiles: bool
         }

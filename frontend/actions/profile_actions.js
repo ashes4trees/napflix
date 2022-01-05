@@ -4,12 +4,18 @@ export const RECEIVE_CURRENT_PROFILE = 'RECEIVE_CURRENT_PROFILE';
 export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
 export const RECEIVE_NEW_PROFILE = 'CREATE_NEW_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
 
 
 const receiveUserProfiles = profiles => ({
     type: RECEIVE_USER_PROFILES,
     profiles
 });
+
+const receiveProfile = profile => ({
+    type: RECEIVE_PROFILE,
+    profile
+})
 
 const receiveCurrentProfile = currentProfile => ({
     type: RECEIVE_CURRENT_PROFILE,
@@ -36,7 +42,12 @@ export const fetchProfiles = userId => dispatch => (
         .then(profiles => dispatch(receiveUserProfiles(profiles)))
 );
 
-export const fetchProfile = profileId => dispatch => (
+export const fetchCurrentProfile = profileId => dispatch => (
     ProfileApiUtil.fetchProfile(profileId)
         .then(profile => dispatch(receiveCurrentProfile(profile)))
 );
+
+export const fetchProfile = profileId => dispatch => (
+    ProfileApiUtil.fetchProfile(profileId)
+        .then(profile => dispatch(receiveProfile(profile)))
+)
