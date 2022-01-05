@@ -30,7 +30,7 @@ class AddProfile extends React.Component {
         return (
             <div className='add-profile-main'>
                 <header>
-                    <Link to='./' className='home-button'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
+                    <Link to='/' className='home-button'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
                 </header>
                 <div className='add-profile-content'>
                     <div className='add-profile-text'>
@@ -50,8 +50,8 @@ class AddProfile extends React.Component {
                         
                     </div>
                     <form className='add-profile-btns' onSubmit={this.handleSubmit}>
-                        <button type='submit'>Continue</button>
-                        <button onClick={this.props.handleCancel}>Cancel</button>
+                        <button type='submit' className='save-btn'>Continue</button>
+                        <button onClick={this.props.handleCancel} className='cancel-btn'>Cancel</button>
                     </form>
                 </div>
                 

@@ -77,6 +77,11 @@ body {
     cursor: pointer;
 }
 
+.done-btn:hover {
+    background: red;
+    color: white;
+}
+
 .done-link {
     text-decoration: none;
 }
