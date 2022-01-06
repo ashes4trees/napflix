@@ -26,6 +26,7 @@ class AddProfile extends React.Component {
 
 
     render () {
+        const filled = this.state.name === '' ? '' : 'filled'
         return (
             <div className='add-profile-main'>
                 <header>
@@ -44,7 +45,7 @@ class AddProfile extends React.Component {
                                 type="text"
                                 onChange={this.update('name')}
                             />
-                            <label className='name-label'>Name</label>
+                            <label id={filled}>Name</label>
                         </div>
                         
                     </div>

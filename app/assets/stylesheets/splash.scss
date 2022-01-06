@@ -79,9 +79,10 @@
     left: 16px;
 }
 
-.input-container:focus-within label {
+.input-container:focus-within label, #filled {
   transform: translate(0, 5px) scale(0.8);
 }
+
 
 
 
@@ -101,6 +102,7 @@
     text-decoration: none;
     color: gray;
     margin-top: 10px;
+    
 }
 
 

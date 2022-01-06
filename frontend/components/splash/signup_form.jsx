@@ -27,7 +27,8 @@ class SignupForm extends React.Component {
     }
 
     render() {
-
+        const emailFilled = this.state.email === '' ? '' : 'filled';
+        const passFilled = this.state.password === '' ? '' : 'filled';
         const errors = this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
         
         return (
@@ -47,7 +48,7 @@ class SignupForm extends React.Component {
                                     value={this.state.email}
                                     onChange={this.update('email')}
                                 />
-                                <label>Email</label>
+                                <label id={emailFilled}>Email</label>
                             </div>
                             
                        
@@ -58,7 +59,7 @@ class SignupForm extends React.Component {
                                     type="password"
                                     onChange={this.update('password')}
                                 />
-                                <label>Add a password</label>
+                                <label id={passFilled}>Add a password</label>
                             </div>
                         
                         <ul className='error-list'>{errors}</ul>

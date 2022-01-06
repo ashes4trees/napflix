@@ -80,6 +80,8 @@
     width: 98%;
     height: 50px;
     margin-bottom: 10px;
+    padding-left: 16px;
+    font-weight: bold;
 }
 
 .signup-main {
@@ -149,6 +151,6 @@
     width: 100%
 }
 
-.signup-input-container:focus-within label {
+.signup-input-container:focus-within label, #filled {
     transform: translate(0, 5px) scale(0.8);
 }

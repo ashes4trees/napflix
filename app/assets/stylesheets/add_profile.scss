@@ -68,7 +68,7 @@
     padding-left: 10px;
 }
 
-.name-label {
+.add-profile-input-container label {
     position: absolute;
     pointer-events: none;
     color: white;
@@ -78,7 +78,7 @@
     padding-left: 10px;
 }
 
-.add-profile-input-container:focus-within label {
+.add-profile-input-container:focus-within label, #filled {
     display: none;
 }
 

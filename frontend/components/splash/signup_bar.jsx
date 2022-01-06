@@ -42,7 +42,7 @@ class SignupBar extends React.Component {
                             onClick={this.handleClick()}
                             onChange={this.update('email')}
                         />
-                        <label className={filled}>Email address</label>
+                        <label id={filled}>Email address</label>
                     </div>
                     
                         
