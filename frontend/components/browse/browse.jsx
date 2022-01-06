@@ -1,6 +1,6 @@
 import React from "react";
 import ProfilesIndex from "../profiles/profiles_index";
-import SplashHeader from '../splash/splash_header';
+import GenresIndexContainer from "./genres_index_container";
 
 class Browse extends React.Component {
     constructor(props) {
@@ -31,9 +31,10 @@ class Browse extends React.Component {
                 />  
              : 
             <div>
-                <SplashHeader />
+                <GenresIndexContainer />
+                {/* <SplashHeader />
                 <button onClick={this.props.logout}>LOGOUT</button>
-                <h1>MOVIES GO HERE...</h1>
+                <h1>MOVIES GO HERE...</h1> */}
             </div>
            
         

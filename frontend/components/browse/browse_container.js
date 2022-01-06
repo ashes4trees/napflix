@@ -5,7 +5,7 @@ import Browse from './browse';
 import { fetchProfiles, fetchCurrentProfile } from '../../actions/profile_actions';
 
 const mDTP = dispatch => ({
-    logout: () => dispatch(logout()),
+    
     fetchProfiles: userId => dispatch(fetchProfiles(userId)),
     switchProfile: profileId => dispatch(fetchCurrentProfile(profileId))
 });
