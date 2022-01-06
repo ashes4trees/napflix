@@ -9,15 +9,12 @@ class Api::ProfilesController < ApplicationController
         end
     end
 
-    
     def update
-        @profile = selected_profile
-        if @profile && @profile.update_attributes(profile_params)
-        render :show
-        elsif !@profile
-        render json: ['Could not locate profile'], status: 400
+        @profile = Profile.find(params[:id])
+        if @profile && @profile.update(update_params)
+            render :show
         else
-        render json: @profile.errors.full_messages, status: 401
+            render json: @profile.errors.full_messages, status: 401
         end
     end
     
@@ -33,10 +30,25 @@ class Api::ProfilesController < ApplicationController
         render :index
     end
 
+    
+    def destroy
+        @profile = current_user.profiles.find_by(id: params[:id])
+        if @profile && @profile.destroy
+            render :show
+        else
+            render json: ['Something went wrong'], status: 401
+        end
+     end
+    
+
     private 
 
     def profile_params
         params.require(:profile).permit(:name, :user_id)
+    end
+
+    def update_params
+        params.require(:profile).permit(:name, :id)
     end
 
 end

@@ -4,7 +4,8 @@ export const RECEIVE_CURRENT_PROFILE = 'RECEIVE_CURRENT_PROFILE';
 export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
 export const RECEIVE_NEW_PROFILE = 'CREATE_NEW_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
-export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
+export const REMOVE_PROFILE = 'REMOVE_PROFILE';
+// export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
 
 
 const receiveUserProfiles = profiles => ({
@@ -12,10 +13,10 @@ const receiveUserProfiles = profiles => ({
     profiles
 });
 
-const receiveProfile = profile => ({
-    type: RECEIVE_PROFILE,
-    profile
-})
+// const receiveProfile = profile => ({
+//     type: RECEIVE_PROFILE,
+//     profile
+// })
 
 const receiveCurrentProfile = currentProfile => ({
     type: RECEIVE_CURRENT_PROFILE,
@@ -26,6 +27,16 @@ const receiveNewProfile = profile => ({
     type: RECEIVE_NEW_PROFILE,
     profile
 });
+
+const removeProfile = profileId => ({
+    type: REMOVE_PROFILE,
+    profileId
+});
+
+export const deleteProfile = profileId => dispatch => (
+    ProfileApiUtil.deleteProfile(profileId)
+        .then((profileId) => dispatch(removeProfile(profileId)))
+)
 
 export const updateProfile = profile => dispatch => (
     ProfileApiUtil.updateProfile(profile)
@@ -47,7 +58,9 @@ export const fetchCurrentProfile = profileId => dispatch => (
         .then(profile => dispatch(receiveCurrentProfile(profile)))
 );
 
-export const fetchProfile = profileId => dispatch => (
-    ProfileApiUtil.fetchProfile(profileId)
-        .then(profile => dispatch(receiveProfile(profile)))
-)
+// export const fetchProfile = profileId => dispatch => (
+//     ProfileApiUtil.fetchProfile(profileId)
+//         .then(profile => dispatch(receiveProfile(profile)))
+// )
+
+

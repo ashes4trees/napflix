@@ -11,6 +11,7 @@ class ProfileIndexItem extends React.Component {
         return (
             <li
                 id={this.props.profile.id}
+                name={this.props.profile.name}
                 onClick={e => this.props.handleClick(e)}
                 className='profile-item'>
                 <img src={window.avatar} className={dark} />

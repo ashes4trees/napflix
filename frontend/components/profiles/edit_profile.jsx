@@ -1,14 +1,16 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 class EditProfile extends React.Component {
     constructor(props) {
         super(props) 
+        
+        this.state = { id: this.props.profile.id,
+            name: this.props.profile.name }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.props.fetchProfile(props.profileId)
     }
-    
 
     update(field) {
         return (e) => {
@@ -16,12 +18,17 @@ class EditProfile extends React.Component {
         }
     }
 
-    handleSubmit() {
-        this.props.updateProfile(this.state);
+  
+
+    handleSubmit(e) {
+        e.preventDefault()
+        const updatedProfile = Object.assign({}, this.state)
+        this.props.updateProfile(updatedProfile);
+        location.reload()
     }
 
     render () {
-        
+        debugger
         return (
             <div className='edit-profile-main'>
                 
@@ -33,17 +40,30 @@ class EditProfile extends React.Component {
                     </div>
 
                     <form className='edit-profile-form' onSubmit={this.handleSubmit}>
-                        <img src={window.avatar} />
-                        <input
-                            type="text"
-                            value={this.props.editProfile.name}
-                            onChange={this.update('name')} />
+                        <div className='img-input-container'>
+                            <img src={window.avatar} />
+                            <input
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.update('name')}
+                                 />
+                        </div>
+                       
+
+                        <div className='edit-buttons-container'>
+                            <button className='save-btn' type='submit'>Save</button>
+                            <button 
+                                className='cancel-btn' 
+                                onClick={() => this.props.handleCancel()}
+                                >Cancel</button>
+                            <button
+                                className='cancel-btn' 
+                                onClick={() => this.props.handleDelete(this.state.id)}
+                            >Delete Profile</button>
+                        </div>
                     </form>
 
-                    <div className='edit-buttons-container'>
-                        <button className='save-btn'>Save</button>
-                        <button className='cancel-btn'>Cancel</button>
-                    </div>
+                    
                 </div>
                 
                

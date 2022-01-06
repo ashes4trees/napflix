@@ -20,7 +20,6 @@ class AddProfile extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const profile = Object.assign({}, this.state);
-        debugger
         dispatch(createProfile(profile));
         location.reload()
  

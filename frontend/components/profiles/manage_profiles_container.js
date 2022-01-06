@@ -1,16 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateProfile, fetchProfile } from '../../actions/profile_actions';
+import { updateProfile, fetchProfiles, deleteProfile } from '../../actions/profile_actions';
 import ManageProfiles from './manage_profiles';
 
 const mSTP = state => ({
     profiles: Object.values(state.entities.profiles),
+    userId: state.session.id,
     editProfile: state.edit
 });
 
 const mDTP = dispatch => ({
     updateProfile: profile => dispatch(updateProfile(profile)),
-    fetchProfile: profileId => dispatch(fetchProfile(profileId))
+    fetchProfiles: userId => dispatch(fetchProfiles(userId)),
+    deleteProfile: profileId => dispatch(deleteProfile(profileId))
 
 });
 

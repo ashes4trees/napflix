@@ -26,4 +26,11 @@ export const updateProfile = profile => (
         url: `api/profiles/${profile.id}`,
         data: { profile }
     })
+);
+
+export const deleteProfile = profileId => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/profiles/${profileId}`
+    })
 )

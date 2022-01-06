@@ -2,20 +2,50 @@ import React from "react";
 import ProfileIndexItem from './profile_index_item';
 import { Link } from "react-router-dom";
 import EditProfile from "./edit_profile";
+import AddProfile from "./add_profile";
 
 class ManageProfiles extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             show: 'profiles',
-            profileId: null
+            profile: {
+                id: null,
+                name: ''
+            }
         }
-        this.handleProfileClick = this.handleProfileClick.bind(this)
+        this.handleProfileClick = this.handleProfileClick.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.props.fetchProfiles(this.props.userId);
     }
 
     handleProfileClick(e) {
-        this.setState({show: 'edit form', profileId: e.currentTarget.id });
+        this.setState({show: 'edit form', profile:  {
+            id: e.currentTarget.id, 
+            name: e.currentTarget.attributes.name.value
+        }});
     }
+
+    handleAddClick() {
+        this.setState({ show: 'add profile'});
+    }
+
+    handleCancel() {
+        this.setState({ show: 'profiles'});
+    }
+
+    handleDelete(profileId) {
+        this.props.deleteProfile(profileId);
+        location.reload();
+        this.setState({ show: 'profiles' });
+       
+    }
+
+    // renderSwitch() {
+       
+    //     }
+    // }
 
     render () {
         const profiles = this.props.profiles.map(profile => (
@@ -26,8 +56,9 @@ class ManageProfiles extends React.Component {
                 darken={'yes'}
             />
         ));
+    
 
-        const display = this.state.show === 'profiles' ? (
+        const profileDisplay = (
             <div>
                 <Link to='/' className='profiles-home-btn'><img id="logo" src={window.logoURL} alt="Napflix" /></Link>
 
@@ -35,7 +66,7 @@ class ManageProfiles extends React.Component {
                     <h1>Manage Profiles:</h1>
                     <ul className='edit-profiles-list'>
                         {profiles}
-                        <li className='edit-profile-container' onClick={() => this.handleClick()}>
+                        <li className='edit-profile-container' onClick={() => this.handleAddClick()}>
                             <img id='edit-profile' src={window.addProfile} />
                             <p>Add Profile</p>
                         </li>
@@ -43,14 +74,40 @@ class ManageProfiles extends React.Component {
                     <Link to='/browse' className='done-link'><p className='done-btn'>Done</p></Link>
                 </div>
             </div> 
-        ) : (
-            <EditProfile
-            editProfile={this.props.editProfile}
-            profileId={this.state.profileId}
-            updateProfile={this.props.updateProfile}
-            fetchProfile={this.props.fetchProfile}/>
         )
         
+        const editDisplay = (
+            <EditProfile
+            handleCancel={this.handleCancel}
+            profile={this.state.profile}
+            handleDelete={this,this.handleDelete}
+            updateProfile={this.props.updateProfile}
+            />
+        )
+
+        const addDisplay = (
+            <div>
+                <AddProfile
+                    userId={this.props.userId}
+                    handleCancel={this.handleCancel} />
+
+            </div>
+        )
+
+    let display;
+    switch (this.state.show) {
+        case 'profiles':
+            display = profileDisplay
+            return display
+        case 'edit form':
+            display = editDisplay
+            return display
+        case 'add profile':
+            display = addDisplay
+            return display
+        default:
+            display = profileDisplay
+    }
             return (
                display
             )
