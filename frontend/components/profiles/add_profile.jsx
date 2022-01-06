@@ -26,7 +26,7 @@ class AddProfile extends React.Component {
 
 
     render () {
-        const filled = this.state.name === '' ? '' : 'filled'
+        const filled = this.state.name === '' ? '' : 'profile-filled'
         return (
             <div className='add-profile-main'>
                 <header>
