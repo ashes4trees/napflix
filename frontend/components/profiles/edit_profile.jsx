@@ -18,8 +18,6 @@ class EditProfile extends React.Component {
         }
     }
 
-  
-
     handleSubmit(e) {
         e.preventDefault()
         const updatedProfile = Object.assign({}, this.state)

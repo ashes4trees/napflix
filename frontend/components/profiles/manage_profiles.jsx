@@ -44,10 +44,6 @@ class ManageProfiles extends React.Component {
         setTimeout(() => this.setState({ show: 'profiles' }), 1000);
     }
 
-    // renderSwitch() {
-       
-    //     }
-    // }
 
     render () {
         const profiles = this.props.profiles.map(profile => (
