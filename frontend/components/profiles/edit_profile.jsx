@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
@@ -9,7 +8,7 @@ class EditProfile extends React.Component {
         
         this.state = { id: this.props.profile.id,
             name: this.props.profile.name }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleEditSubmit = this.handleEditSubmit.bind(this)
     }
 
     update(field) {
@@ -18,14 +17,14 @@ class EditProfile extends React.Component {
         }
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
+    handleEditSubmit(e) {
+        e.preventDefault();
         const updatedProfile = Object.assign({}, this.state)
         this.props.updateProfile(updatedProfile);
+        window.location.reload();
     }
 
     render () {
-        debugger
         return (
             <div className='edit-profile-main'>
                 
@@ -36,7 +35,7 @@ class EditProfile extends React.Component {
                         <h1>Edit Profile</h1>
                     </div>
 
-                    <form className='edit-profile-form' onSubmit={this.handleSubmit}>
+                    <form className='edit-profile-form' >
                         <div className='img-input-container'>
                             <img src={window.avatar} />
                             <input
@@ -48,7 +47,9 @@ class EditProfile extends React.Component {
                        
 
                         <div className='edit-buttons-container'>
-                            <button className='save-btn' type='submit'>Save</button>
+                            <button 
+                                className='save-btn' 
+                                onClick={this.handleEditSubmit}>Save</button>
                             <button 
                                 className='cancel-btn' 
                                 onClick={() => this.props.handleCancel()}

@@ -17,7 +17,7 @@ class ManageProfiles extends React.Component {
         this.handleProfileClick = this.handleProfileClick.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-        this.props.fetchProfiles(this.props.userId);
+        // this.props.fetchProfiles(this.props.userId);
     }
 
     handleProfileClick(e) {
@@ -35,13 +35,13 @@ class ManageProfiles extends React.Component {
         this.setState({ show: 'profiles'});
     }
 
-    componentDidUpdate() {
+    componentDidMount () {
         this.props.fetchProfiles(this.props.userId)
     }
 
     handleDelete(profileId) {
         this.props.deleteProfile(profileId);
-        setTimeout(() => this.setState({ show: 'profiles' }), 1000);
+        setTimeout(() => this.setState({ show: 'profiles' }), 500);
     }
 
 

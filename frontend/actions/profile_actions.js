@@ -2,7 +2,7 @@ import * as ProfileApiUtil from '../util/profile_api_util';
 
 export const RECEIVE_CURRENT_PROFILE = 'RECEIVE_CURRENT_PROFILE';
 export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
-export const RECEIVE_NEW_PROFILE = 'CREATE_NEW_PROFILE';
+export const RECEIVE_NEW_PROFILE = 'RECEIVE_NEW_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const REMOVE_PROFILE = 'REMOVE_PROFILE';
 // export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
@@ -28,14 +28,14 @@ const receiveNewProfile = profile => ({
     profile
 });
 
-const removeProfile = profileId => ({
+const removeProfile = profile => ({
     type: REMOVE_PROFILE,
-    profileId
+    profile
 });
 
 export const deleteProfile = profileId => dispatch => (
     ProfileApiUtil.deleteProfile(profileId)
-        .then((profileId) => dispatch(removeProfile(profileId)))
+        .then((profile) => dispatch(removeProfile(profile)))
 )
 
 export const updateProfile = profile => dispatch => (

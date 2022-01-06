@@ -21,6 +21,7 @@ class AddProfile extends React.Component {
         e.preventDefault();
         const profile = Object.assign({}, this.state);
         dispatch(createProfile(profile));
+        window.location.reload();
     }
 
 

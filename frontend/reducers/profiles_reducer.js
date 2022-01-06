@@ -10,7 +10,7 @@ const profilesReducer = (state = {}, action) => {
             return Object.assign({}, state, { [action.profile.id]: action.profile})
         case REMOVE_PROFILE:
             let nextState = Object.assign({}, state)
-            delete nextState[action.profileId]
+            delete nextState[action.profile.id]
             return nextState
         case LOGOUT_CURRENT_USER:
             return {};

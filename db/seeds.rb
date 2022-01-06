@@ -14,8 +14,20 @@ User.create(email: 'penny@gmail.com', password: 'password')
 User.create(email: 'binx@gmail.com', password: 'password')
 User.create(email: 'max@gmail.com', password: 'password')
 
-Profile.create(user_id: User.first[:id], name: 'mom')
-Profile.create(user_id: User.first[:id], name: 'dad')
-Profile.create(user_id: User.first[:id], name: 'grandma')
+first_user = User.first
+
+Profile.create(user_id: first_user.id, name: 'mom')
+Profile.create(user_id: first_user.id, name: 'dad')
+Profile.create(user_id: first_user.id, name: 'grandma')
+
+
+users = User.all.pluck(:id)
+users.each do |user|
+    Profile.create(user_id: user, name: 'me')
+end
+
+
+
+
 
 
