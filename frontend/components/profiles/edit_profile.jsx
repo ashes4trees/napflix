@@ -24,7 +24,6 @@ class EditProfile extends React.Component {
         e.preventDefault()
         const updatedProfile = Object.assign({}, this.state)
         this.props.updateProfile(updatedProfile);
-        location.reload()
     }
 
     render () {
