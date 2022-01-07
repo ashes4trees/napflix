@@ -1,6 +1,8 @@
 class Api::MoviesController < ApplicationController
     
-   def show
-
+   def index
+      @movies = Movie.all
+      render :index
    end
+
 end
