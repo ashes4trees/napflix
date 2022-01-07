@@ -1,4 +1,4 @@
-import { RECEIVE_USER_PROFILES, RECEIVE_NEW_PROFILE, REMOVE_PROFILE } from "../actions/profile_actions";
+import { RECEIVE_USER_PROFILES, RECEIVE_NEW_PROFILE, REMOVE_PROFILE, RESET_CURRENT_PROFILE } from "../actions/profile_actions";
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 const profilesReducer = (state = {}, action) => {

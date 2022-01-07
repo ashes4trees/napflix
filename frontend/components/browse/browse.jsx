@@ -31,7 +31,7 @@ class Browse extends React.Component {
                 />  
              : 
             <div>
-                <GenresIndexContainer />
+                <GenresIndexContainer history={this.props.history}/>
                 {/* <SplashHeader />
                 <button onClick={this.props.logout}>LOGOUT</button>
                 <h1>MOVIES GO HERE...</h1> */}

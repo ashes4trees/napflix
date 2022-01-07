@@ -5,7 +5,7 @@ export const RECEIVE_USER_PROFILES = 'RECEIVE_USER_PROFILES';
 export const RECEIVE_NEW_PROFILE = 'RECEIVE_NEW_PROFILE';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const REMOVE_PROFILE = 'REMOVE_PROFILE';
-// export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
+export const RESET_CURRENT_PROFILE = 'RESET_CURRENT_PROFILE';
 
 
 const receiveUserProfiles = profiles => ({
@@ -13,10 +13,9 @@ const receiveUserProfiles = profiles => ({
     profiles
 });
 
-// const receiveProfile = profile => ({
-//     type: RECEIVE_PROFILE,
-//     profile
-// })
+export const resetCurrentProfile = () => ({
+    type: RESET_CURRENT_PROFILE
+});
 
 const receiveCurrentProfile = currentProfile => ({
     type: RECEIVE_CURRENT_PROFILE,
@@ -58,9 +57,5 @@ export const fetchCurrentProfile = profileId => dispatch => (
         .then(profile => dispatch(receiveCurrentProfile(profile)))
 );
 
-// export const fetchProfile = profileId => dispatch => (
-//     ProfileApiUtil.fetchProfile(profileId)
-//         .then(profile => dispatch(receiveProfile(profile)))
-// )
 
 

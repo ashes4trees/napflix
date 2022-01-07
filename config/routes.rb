@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :update, :destroy]
     resource :session, only: [:create, :destroy]
     resources :movies, only: [:index, :show]
-    resources :genres, only: [:index, :show]
+    # resources :genres, only: [:index, :show]
   end 
 end

@@ -7,16 +7,29 @@ class GenresIndex extends React.Component {
         super(props)
     }
     render() {
-
+        
         return (
             <div className='browse-main'>
-                <BrowseHeader logout={this.props.logout} />
-                <div className='random-movie'>
-                    <h1>RANDOM MOVIE HERE</h1>
+                <BrowseHeader
+                    history={this.props.history} 
+                    logout={this.props.logout} 
+                    resetProfile={this.props.resetProfile}/>
+                <div className='top-movie'>
+                    <img src={window.eternal}/>
+                    <h1>Eternal Sunshine of the Spotless Mind</h1>
+                    <div className='top-movie-btns'>
+                        <button className='top-play'>Play</button>
+                        <button className='top-info'>More info</button>
+                    </div>
+                    
                 </div>
                 <div className='genres-browse'>
-                    {/* <GenreList /> */}
+                    <h1>Genre1</h1>
+                    <h1>Genre2</h1>
+                    <h1>Genre3</h1>
+                    <h1>Genre4</h1>
                 </div>
+                
             </div>
         )
         
