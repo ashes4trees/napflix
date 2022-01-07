@@ -6,6 +6,11 @@ class GenresIndex extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    componentDidMount() {
+        this.props.fetchMovies();
+    }
+
     render() {
         
         return (
@@ -23,12 +28,12 @@ class GenresIndex extends React.Component {
                     </div>
                     
                 </div>
-                <div className='genres-browse'>
-                    <h1>Genre1</h1>
-                    <h1>Genre2</h1>
-                    <h1>Genre3</h1>
-                    <h1>Genre4</h1>
-                </div>
+                <GenreList 
+                    movies={this.props.movies}
+                    genres={this.props.genres}
+                    tags={this.props.tags}
+                />
+                
                 
             </div>
         )

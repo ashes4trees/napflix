@@ -10,6 +10,8 @@ require 'open-uri'
 User.destroy_all
 Profile.destroy_all
 Movie.destroy_all
+Genre.destroy_all
+Tag.destroy_all
 
 User.create(id: 1, email: 'demo@user.com', password: 'password')
 User.create(id: 2, email: 'penny@gmail.com', password: 'password')
@@ -76,9 +78,17 @@ Tag.create(movie_id: 4, genre_id: 1)
 
 
 
-photo_file = URI.open('https://s3.amazonaws.com/napflix-seeds/sleepless.png')
-Movie.all.each do |movie|
-    movie.photo.attach(io: photo_file, filename: 'sleepless.png')
+photo_file = URI.open('https://napflix-seeds.s3.amazonaws.com/sleepless.png')
+movie = Movie.first
+movie.photo.attach(io: photo_file, filename: 'sleepless.png')
+
+movies = Movie.all
+movies.each do |movie|
+    if movie.id == 1
+        next 
+    else  
+        movie.photo.attach(io: File.open('app/assets/images/collage.png'), filename: 'collage.png')
+    end
 end
 
 
