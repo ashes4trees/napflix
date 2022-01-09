@@ -6,7 +6,7 @@ import { resetCurrentProfile } from "../../actions/profile_actions";
 import { fetchMovies } from "../../actions/movie_actions";
 
 const mSTP = state => ({
-    movies: Object.values(state.entities.movies),
+    movies: state.entities.movies,
     genres: Object.values(state.entities.genres),
     tags: Object.values(state.entities.tags)
 });

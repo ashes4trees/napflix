@@ -20,7 +20,10 @@
     top: -550px;
     display: flex;
     margin-left: 75px;
+
 }
+
+
 
 .top-play {
     width: fit-content;
@@ -34,6 +37,10 @@
     cursor: pointer;
 }
 
+.top-play:hover {
+    filter: brightness(75%);
+}
+
 .top-info {
     width: fit-content;
     height: 40px;
@@ -45,7 +52,10 @@
     margin-right: 10px;
     color: white;
     cursor: pointer;
+}
 
+.top-info:hover {
+    filter: brightness(75%);
 }
 
 
