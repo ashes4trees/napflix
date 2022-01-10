@@ -8,7 +8,8 @@ import { fetchMovies } from "../../actions/movie_actions";
 const mSTP = state => ({
     movies: state.entities.movies,
     genres: Object.values(state.entities.genres),
-    tags: Object.values(state.entities.tags)
+    tags: Object.values(state.entities.tags),
+    topMovie: Object.values(state.entities.movies)[3]
 });
 
 const mDTP = dispatch => ({

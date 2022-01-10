@@ -1,0 +1,25 @@
+:-webkit-full-screen {
+  background-color: black;
+}
+
+/* IE11 */
+:-ms-fullscreen {
+  background-color: black;
+}
+
+/* Standard syntax */
+:fullscreen {
+  background-color: black;
+}
+
+.show-movie {
+   width: 100%;
+}
+
+.movie-container {
+    margin: 0 auto;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

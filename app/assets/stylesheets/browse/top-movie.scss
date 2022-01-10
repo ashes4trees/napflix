@@ -1,6 +1,6 @@
 .top-movie img {
     width: 100%;
-    height: auto;
+    height: calc(width*9/16);
 }
 
 .top-movie h1 {
@@ -56,6 +56,30 @@
 
 .top-info:hover {
     filter: brightness(75%);
+}
+
+#top-sound-off {
+    width: 30px;
+    height: 30px;
+    filter: brightness(90%);
+    opacity: .85;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1;
+    position: relative;
+    bottom: 600px;
+    display: flex;
+    left: 1200px;
+    cursor: pointer;
+}
+
+#top-sound-off:hover {
+    filter: none;
+}
+
+#top-sound-off .hidden {
+    opacity: 0;
 }
 
 
