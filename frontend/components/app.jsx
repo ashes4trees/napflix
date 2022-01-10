@@ -11,9 +11,9 @@ import ShowMovieContainer from '../components/movies/show_movie_container';
 const App = () => (
     <div>
 
+        <ProtectedRoute exact path='/watch/:movieId' component={ShowMovieContainer} />
         <ProtectedRoute exact path='/browse' component={BrowseContainer} />
         <ProtectedRoute exact path='/manageprofiles' component={ManageProfilesContainer} />
-        <ProtectedRoute exact path='/watch/:movieId' component={ShowMovieContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <AuthRoute exact path='/' component={Splash} />
