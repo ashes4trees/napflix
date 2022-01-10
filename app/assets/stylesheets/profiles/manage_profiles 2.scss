@@ -1,0 +1,111 @@
+body {
+    background: black;
+}
+
+.edit-profiles-container {
+    margin: 0 auto;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.edit-profiles-container h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.edit-profiles-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-profiles-list li {
+    margin: 15px;
+    cursor: pointer;
+}
+
+.edit-profiles-list img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+.edit-profiles-list img:hover {
+    border: 2px solid white;
+}
+
+
+.profiles-home-btn img {
+    padding-top: 20px;
+    cursor: pointer;
+    padding-left: 30px;
+}
+
+.edit-profiles-list li p {
+    margin-top: 20px;
+    color: gray;
+
+}
+
+#edit-profile {
+    box-sizing: border-box;
+    color: gray;
+    width: 150px;
+    height: 150px;
+    opacity: 80%;
+}
+
+#edit-profile:hover {
+    background: white;
+    opacity: 90%
+}
+
+.done-btn {
+    color: black;
+    background: white;
+    margin-top: 10%;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.done-btn:hover {
+    background: red;
+    color: white;
+}
+
+.done-link {
+    text-decoration: none;
+}
+
+.profile-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-profiles-list .pencil {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.edit-profiles-list .pencil:hover {
+    border: none;
+}
+
+.dark {
+    filter: brightness(60%);
+}
+
+

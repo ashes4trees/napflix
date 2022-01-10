@@ -3,7 +3,7 @@ import usersReducer from "./users_reducer";
 import profilesReducer from './profiles_reducer';
 import moviesReducer from "./movies_reducer";
 import genresReducer from "./genres_reducer";
-import tagsReducer from "./tagsReducer";
+import tagsReducer from "./tags_reducer";
 
 
 const entitiesReducer = combineReducers({
@@ -11,7 +11,8 @@ const entitiesReducer = combineReducers({
     profiles: profilesReducer,
     movies: moviesReducer,
     genres: genresReducer,
-    tags: tagsReducer 
+    tags: tagsReducer,
+    myList: listReducer
 });
 
 export default entitiesReducer;
