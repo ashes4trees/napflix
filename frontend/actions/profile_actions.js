@@ -17,7 +17,7 @@ export const resetCurrentProfile = () => ({
     type: RESET_CURRENT_PROFILE
 });
 
-const receiveCurrentProfile = currentProfile => ({
+export const receiveCurrentProfile = currentProfile => ({
     type: RECEIVE_CURRENT_PROFILE,
     currentProfile
 });

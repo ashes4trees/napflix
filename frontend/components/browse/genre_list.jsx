@@ -32,6 +32,8 @@ class GenreList extends React.Component {
         const renderMovies = this.selectMovies();
         const display = renderMovies.map(movie => 
             <MovieDetail 
+                currentUserId={this.props.currentUserId}
+                createListItem={this.props.createListItem} 
                 key={movie.id}
                 movie={movie}
                 tags={this.props.tags}

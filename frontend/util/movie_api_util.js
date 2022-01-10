@@ -13,3 +13,15 @@ export const fetchMovie = movieId => (
         url: `api/movies/${movieId}`
     })
 );
+
+export const createListItem = (movieId, profileId) => (
+    $.ajax({
+        method: 'POST',
+        url: `api/lists`,
+        data: {list: {
+            movie_id: movieId, 
+            profile_id: profileId
+        }
+        }
+    })
+)

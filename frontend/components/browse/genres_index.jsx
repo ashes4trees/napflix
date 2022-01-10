@@ -60,6 +60,8 @@ class GenresIndex extends React.Component {
             <div key={genre.id} className='genre-name'>
                 <h1>{genre.genre}</h1>
                 <GenreList 
+                    currentUserId={this.props.currentUserId}
+                    createListItem={this.props.createListItem} 
                     movies={this.props.movies}
                     genreId={genre.id}
                     genres={this.props.genres}
@@ -71,7 +73,9 @@ class GenresIndex extends React.Component {
         const displayLength = this.convertLength(this.props.topMovie.length);
 
         const modal = this.state.showModal ? 
-            <DetailsModal 
+            <DetailsModal
+                currentUserId={this.props.currentUserId}
+                createListItem={this.props.createListItem} 
                 movie={this.props.topMovie}
                 toggleModal={this.toggleModal}
                 onEnd={this.onEnd}

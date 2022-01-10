@@ -119,7 +119,12 @@ class MovieDetail extends React.Component {
                     <div className='details-btns'>
                         <div className='details-left-btns'>
                             <Link to={`/watch/${this.props.movie.id}`} id='details-play'>&#9658;</Link>
-                            <button id='details-add-list'>+</button>
+                            <button 
+                                id='details-add-list'
+                                onClick={() => 
+                                    this.props.createListItem(this.props.movie.id, this.props.currentUserId)
+                                }
+                                >+</button>
                         </div>
                         <button onClick={this.toggleModal} id='details-info-btn'>
                             <p>&#8964;</p>
