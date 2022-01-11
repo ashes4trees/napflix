@@ -4,8 +4,9 @@ const listsReducer = (state = {}, action) => {
     Object.freeze(state)
     switch (action.type) {
         case RECEIVE_CURRENT_PROFILE:
-            return action.currentProfile.myList ? 
-                action.currentProfile.myList : null
+            const nextState = action.currentProfile.myList ? 
+                action.currentProfile.myList : null;
+            return nextState;
         default:
             return state;
     }

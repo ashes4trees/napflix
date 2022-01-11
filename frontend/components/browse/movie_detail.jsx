@@ -42,7 +42,6 @@ class MovieDetail extends React.Component {
     }
 
     stopAll() {
-        // debugger
         const videos = Object.values(document.querySelectorAll('video'));
         videos.forEach(video => {
             video.pause;
@@ -72,9 +71,14 @@ class MovieDetail extends React.Component {
 
     }
 
+    onList() {
+        const match = this.props.myList.filter(listItem => listItem.movie_id === this.props.movie.id);
+        return match.length > 0
+    }
+
 
     render() {
-
+        // debugger
         if (this.state.showModal) {
             this.stopAll()
         }
@@ -82,6 +86,8 @@ class MovieDetail extends React.Component {
         const display = tags.map(tag => <p key={tag.id}>{tag.genre}</p> )
         const modal = this.state.showModal ? 
             <DetailsModal 
+                createListItem={this.props.createListItem}
+                currentUserId={this.props.currentUserId}
                 movie={this.props.movie} 
                 toggleModal={this.toggleModal}
                 soundOff={this.soundOff}
@@ -90,6 +96,8 @@ class MovieDetail extends React.Component {
                 /> 
                 : null
         const soundBtn = this.state.sound ? window.volumeOff : window.volumeOn;
+        const listButton = this.onList() ? '-' : '+';
+        
         return (
     
             <div onMouseEnter={this.autoplay}
@@ -124,7 +132,7 @@ class MovieDetail extends React.Component {
                                 onClick={() => 
                                     this.props.createListItem(this.props.movie.id, this.props.currentUserId)
                                 }
-                                >+</button>
+                                >{listButton}</button>
                         </div>
                         <button onClick={this.toggleModal} id='details-info-btn'>
                             <p>&#8964;</p>

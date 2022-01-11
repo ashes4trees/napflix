@@ -9,15 +9,23 @@ class GenreList extends React.Component {
     };
 
     selectMovies() {
-        const selectedTags = this.props.tags.filter(tag => 
-            tag.genre_id === this.props.genreId
-            );
         
-        const selectedMovies = selectedTags.map(tag => 
-            this.props.movies[tag.movie_id]
+        if (!this.props.genreId) {
+            const selectedMovies = this.props.myList.map(item => 
+                this.props.movies[item.movie_id]);
+            return selectedMovies;
+        } else {
+            const selectedTags = this.props.tags.filter(tag =>
+                tag.genre_id === this.props.genreId
             );
-    
-        return selectedMovies;
+
+            const selectedMovies = selectedTags.map(tag =>
+                this.props.movies[tag.movie_id]
+            );
+
+            return selectedMovies;
+        }
+      
     }
 
     leftScroll(e) {
@@ -30,8 +38,9 @@ class GenreList extends React.Component {
 
     render() {
         const renderMovies = this.selectMovies();
-        const display = renderMovies.map(movie => 
+        const display = renderMovies ? renderMovies.map(movie => 
             <MovieDetail 
+                myList={this.props.myList}
                 currentUserId={this.props.currentUserId}
                 createListItem={this.props.createListItem} 
                 key={movie.id}
@@ -39,7 +48,7 @@ class GenreList extends React.Component {
                 tags={this.props.tags}
                 genres={this.props.genres}
                 />
-            );
+            ) : null;
         return (
     
             <div className='genre-list'>

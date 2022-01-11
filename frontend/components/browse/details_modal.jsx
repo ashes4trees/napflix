@@ -37,10 +37,15 @@ class DetailsModal extends React.Component {
 
     }
 
+    onList() {
+        const match = this.props.myList.filter(listItem => listItem.movie_id === this.props.movie.id);
+        return match.length > 0
+    }
+
     render() {
         const displayLength = this.convertLength(this.props.movie.length);
         const soundBtn = this.state.sound ? window.volumeOff : window.volumeOn;
-
+        const listButton = this.onList() ? '-' : '+';
         return (
         <div onMouseOver={this.modalAutoplay} className='modal'>
             <button onClick={this.props.toggleModal} className='exit-modal'>X</button>
@@ -49,7 +54,12 @@ class DetailsModal extends React.Component {
                 <p className='modal-title'>{this.props.movie.title}</p>
                 <div className='modal-btns'>
                     <Link to={`/watch/${this.props.movie.id}`}className='modal-play'>&#9658; Play</Link>
-                    <button id='modal-add-list'>+</button>
+                    <button 
+                        id='modal-add-list'
+                        onClick={() =>
+                            this.props.createListItem(this.props.movie.id, this.props.currentUserId)
+                        }
+                        >{listButton}</button>
                 </div>
 
                 <video

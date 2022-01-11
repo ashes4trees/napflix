@@ -60,6 +60,7 @@ class GenresIndex extends React.Component {
             <div key={genre.id} className='genre-name'>
                 <h1>{genre.genre}</h1>
                 <GenreList 
+                    myList={this.props.myList}
                     currentUserId={this.props.currentUserId}
                     createListItem={this.props.createListItem} 
                     movies={this.props.movies}
@@ -74,6 +75,7 @@ class GenresIndex extends React.Component {
 
         const modal = this.state.showModal ? 
             <DetailsModal
+                myList={this.props.myList}
                 currentUserId={this.props.currentUserId}
                 createListItem={this.props.createListItem} 
                 movie={this.props.topMovie}
@@ -108,6 +110,18 @@ class GenresIndex extends React.Component {
                         onClick={this.soundOff} />
                 </div>
                 <div className='genres-browse'>
+                    <div key={this.props.currentUserId} className='genre-name'>
+                        <h1>My List</h1>
+                        <GenreList
+                            currentUserId={this.props.currentUserId}
+                            createListItem={this.props.createListItem}
+                            movies={this.props.movies}
+                            myList={this.props.myList}
+                            genreId={null}
+                            tags={this.props.tags} 
+                            genres={this.props.genres}/>
+                    </div>
+                   
                     {genres}
                 </div>
                 

@@ -10,7 +10,8 @@ const mSTP = state => ({
     genres: Object.values(state.entities.genres),
     tags: Object.values(state.entities.tags),
     topMovie: Object.values(state.entities.movies)[3],
-    currentUserId: state.session.profileId
+    currentUserId: state.session.profileId,
+    myList: Object.values(state.entities.myList)
 });
 
 const mDTP = dispatch => ({
