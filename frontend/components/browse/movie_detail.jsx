@@ -96,7 +96,7 @@ class MovieDetail extends React.Component {
                 /> 
                 : null
         const soundBtn = this.state.sound ? window.volumeOff : window.volumeOn;
-        const listButton = this.onList() ? '-' : '+';
+        const listButton = this.onList() ? '✓' : '+';
         
         return (
     
