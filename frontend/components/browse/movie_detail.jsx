@@ -1,6 +1,7 @@
 import React from "react";
 import DetailsModal from "./details_modal";
 import { Link } from "react-router-dom";
+import { debounce } from "debounce";
 
 class MovieDetail extends React.Component {
     constructor(props) {
@@ -13,6 +14,8 @@ class MovieDetail extends React.Component {
     this.autoplay = this.autoplay.bind(this);
     this.soundOff = this.soundOff.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.toggleListItem = this.toggleListItem.bind(this);
+    // this.playVid = this.playVid.bind(this);
     }
 
     movieGenres() {
@@ -23,57 +26,78 @@ class MovieDetail extends React.Component {
 
     autoplay(e) {
         
+        
         const video = e.currentTarget.children[1].children[1];
-        this.state.sound ? video.volume = 1 : video.volume = 0
-        video.classList.remove('idle');
-        // video.parentElement.previousElementSibling.classList.toggle('hidden');
+        // debugger
+        video.closest('.genre-list').classList.add('inactive');
         video.previousElementSibling.classList.remove('invisible');
         video.nextElementSibling.classList.remove('invisible');
-        video.currentTime = 0;
+        video.classList.remove('idle');
+        video.parentElement.previousElementSibling.classList.add('invisible');
+        this.state.sound ? video.muted = false : video.muted = true
+        // video.currentTime = 0;
         video.play();
+        // setTimeout(() => this.playVid(video), 200)
     }
 
     stop(e) {
+        console.log('stop')
         const video = e.currentTarget.children[1].children[1];
+        video.pause();
         video.classList.add('idle')
+        video.parentElement.previousElementSibling.classList.remove('invisible');
         video.previousElementSibling.classList.add('invisible');
         video.nextElementSibling.classList.add('invisible');
-        video.pause();
+        
     }
 
     stopAll() {
         const videos = Object.values(document.querySelectorAll('video'));
         videos.forEach(video => {
-            video.pause;
+            video.pause();
             video.classList.add('idle');
+            video.parentElement.previousElementSibling.classList.remove('invisible');
             video.previousElementSibling.classList.add('invisible');
             video.nextElementSibling.classList.add('invisible');
         }
         )
     }
 
-    soundOff() {
+    soundOff(e) {
         const bool = this.state.sound ? false : true;
         this.setState({ sound: bool });
+        const opposite = bool ? false : true
+        e.currentTarget.previousElementSibling.muted = opposite;
     }
 
     toggleModal() {
-        
         const bool = this.state.showModal ?  false : true;
         this.setState({showModal: bool});
-        
     }
 
     onEnd(e) {
-        e.currentTarget.classList.toggle('idle');
+        e.currentTarget.classList.add('idle');
         // e.currentTarget.parentElement.nextElementSibling.classList.toggle('bump')
-        e.currentTarget.parentElement.previousElementSibling.classList.toggle('hidden');
+        e.currentTarget.parentElement.previousElementSibling.classList.remove('invisible');
 
     }
 
     onList() {
         const match = this.props.myList.filter(listItem => listItem.movie_id === this.props.movie.id);
         return match.length > 0
+    }
+
+    toggleListItem() {
+        
+        if (this.onList()) {
+            const item = this.props.myList.filter(listItem => 
+                listItem.movie_id === this.props.movie.id
+                )
+            // debugger
+            return this.props.deleteListItem(item[0].id)
+        } else {
+            return this.props.createListItem(this.props.movie.id, this.props.currentProfileId)
+        }
     }
 
 
@@ -86,8 +110,10 @@ class MovieDetail extends React.Component {
         const display = tags.map(tag => <p key={tag.id}>{tag.genre}</p> )
         const modal = this.state.showModal ? 
             <DetailsModal 
+                myList={this.props.myList}
                 createListItem={this.props.createListItem}
-                currentUserId={this.props.currentUserId}
+                deleteListItem={this.props.deleteListItem}
+                currentProfileId={this.props.currentProfileId}
                 movie={this.props.movie} 
                 toggleModal={this.toggleModal}
                 soundOff={this.soundOff}
@@ -100,17 +126,21 @@ class MovieDetail extends React.Component {
         
         return (
     
-            <div onMouseEnter={this.autoplay}
-                onMouseLeave={this.stop}
-                className='list-item'>
-                <img className='thumbnail' src={this.props.movie.photoUrl} alt="" />
-                <div className='details-vid-container'
-                    
+                <div className='list-item'
+                    onMouseEnter={this.autoplay}
+                    onMouseLeave={this.stop}
                 >
+                <img className='thumbnail' 
+                    src={this.props.movie.photoUrl} 
+                    />
+
+                <div className='details-vid-container'>
                     <p className='details-title invisible'>{this.props.movie.title}</p>
                     <video
                         className='thumbnail-vid idle'
-                        src={window.movie}
+                        src={window.movie2}
+                        type='video/mp4'
+                        
                         // onEnded={this.onEnd}
                     ></video>
 
@@ -129,9 +159,7 @@ class MovieDetail extends React.Component {
                             <Link to={`/watch/${this.props.movie.id}`} id='details-play'>&#9658;</Link>
                             <button 
                                 id='details-add-list'
-                                onClick={() => 
-                                    this.props.createListItem(this.props.movie.id, this.props.currentUserId)
-                                }
+                                onClick={this.toggleListItem}
                                 >{listButton}</button>
                         </div>
                         <button onClick={this.toggleModal} id='details-info-btn'>

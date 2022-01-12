@@ -24,4 +24,11 @@ export const createListItem = (movieId, profileId) => (
         }
         }
     })
-)
+);
+
+export const deleteListItem = (listId) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/lists/${listId}`
+    })
+);

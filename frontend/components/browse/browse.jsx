@@ -14,7 +14,7 @@ class Browse extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({showProfiles: false})
+        this.setState({showProfiles: false});
         this.props.switchProfile(e.currentTarget.id);
     }
 
@@ -23,6 +23,7 @@ class Browse extends React.Component {
         const display = this.state.showProfiles ? 
             
                 <ProfilesIndex
+                    fetchMovies={this.props.fetchMovies}
                     show={this.state.show}
                     profiles={this.props.profiles}
                     userId={this.props.currentUserId}

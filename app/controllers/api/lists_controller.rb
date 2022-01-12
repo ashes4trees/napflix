@@ -11,7 +11,9 @@ class Api::ListsController < ApplicationController
     end
 
     def destroy
-        @list = List.find(params[:list_id])
+        @list = List.find(params[:id])
+        @profile = @list.profile
+        @my_list = @profile.list_items
         if @list.delete
             render 'api/profiles/show'
         else 

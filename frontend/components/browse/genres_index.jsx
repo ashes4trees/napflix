@@ -4,6 +4,8 @@ import GenreList from './genre_list';
 import DetailsModal from "./details_modal";
 import { Link } from "react-router-dom";
 
+
+
 class GenresIndex extends React.Component {
     constructor(props) {
         super(props)
@@ -14,10 +16,6 @@ class GenresIndex extends React.Component {
         }
         this.toggleModal = this.toggleModal.bind(this);
         this.soundOff = this.soundOff.bind(this);
-    }
-
-    componentDidMount() {
-        this.props.fetchMovies();
     }
 
     soundOff(e) {
@@ -50,6 +48,10 @@ class GenresIndex extends React.Component {
         return selectedGenres;
     }
 
+    
+
+   
+
 
 
     render() {
@@ -61,8 +63,9 @@ class GenresIndex extends React.Component {
                 <h1>{genre.genre}</h1>
                 <GenreList 
                     myList={this.props.myList}
-                    currentUserId={this.props.currentUserId}
+                    currentProfileId={this.props.currentProfileId}
                     createListItem={this.props.createListItem} 
+                    deleteListItem={this.props.deleteListItem}
                     movies={this.props.movies}
                     genreId={genre.id}
                     genres={this.props.genres}
@@ -71,13 +74,27 @@ class GenresIndex extends React.Component {
             </div>
         )
 
-        const displayLength = this.convertLength(this.props.topMovie.length);
+        const myList = this.props.myList.length ? <div key = { this.props.currentProfileId } className = 'genre-name' >
+                        <h1>My List</h1>
+                        <GenreList
+                            currentProfileId={this.props.currentProfileId}
+                            createListItem={this.props.createListItem}
+                            deleteListItem={this.props.deleteListItem}
+                            movies={this.props.movies}
+                            myList={this.props.myList}
+                            genreId={null}
+                            tags={this.props.tags} 
+                            genres={this.props.genres}/>
+                    </div > : null
+
+        
 
         const modal = this.state.showModal ? 
             <DetailsModal
                 myList={this.props.myList}
-                currentUserId={this.props.currentUserId}
-                createListItem={this.props.createListItem} 
+                currentProfileId={this.props.currentProfileId}
+                createListItem={this.props.createListItem}
+                deleteListItem={this.props.deleteListItem} 
                 movie={this.props.topMovie}
                 toggleModal={this.toggleModal}
                 onEnd={this.onEnd}
@@ -110,17 +127,7 @@ class GenresIndex extends React.Component {
                         onClick={this.soundOff} />
                 </div>
                 <div className='genres-browse'>
-                    <div key={this.props.currentUserId} className='genre-name'>
-                        <h1>My List</h1>
-                        <GenreList
-                            currentUserId={this.props.currentUserId}
-                            createListItem={this.props.createListItem}
-                            movies={this.props.movies}
-                            myList={this.props.myList}
-                            genreId={null}
-                            tags={this.props.tags} 
-                            genres={this.props.genres}/>
-                    </div>
+                    {myList}
                    
                     {genres}
                 </div>

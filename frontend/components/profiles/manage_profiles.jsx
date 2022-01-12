@@ -54,6 +54,12 @@ class ManageProfiles extends React.Component {
                 darken={'yes'}
             />
         ));
+
+        const addProfile = this.props.profiles.length === 4 ? null :
+            <li className='edit-profile-container' onClick={() => this.handleAddClick()}>
+                <img id='edit-profile' src={window.addProfile} />
+                <p>Add Profile</p>
+            </li>
     
 
         const profileDisplay = (
@@ -64,10 +70,7 @@ class ManageProfiles extends React.Component {
                     <h1>Manage Profiles:</h1>
                     <ul className='edit-profiles-list'>
                         {profiles}
-                        <li className='edit-profile-container' onClick={() => this.handleAddClick()}>
-                            <img id='edit-profile' src={window.addProfile} />
-                            <p>Add Profile</p>
-                        </li>
+                        {addProfile}
                     </ul>
                     <Link to='/browse' className='done-link'><p className='done-btn'>Done</p></Link>
                 </div>

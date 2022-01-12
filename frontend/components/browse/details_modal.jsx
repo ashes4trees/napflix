@@ -9,18 +9,25 @@ class DetailsModal extends React.Component {
             sound: this.props.sound
         }
         this.modalAutoplay = this.modalAutoplay.bind(this);
+        this.toggleListItem = this.toggleListItem.bind(this);
+        this.soundOff = this.soundOff.bind(this);
     }
 
     modalAutoplay(e) {
         const video = e.currentTarget.children[2].children[2];
-        this.state.sound ? video.volume = 1 : video.volume = 0;
-        video.currentTime = 0;
-        video.play();
-
+        this.state.sound ? video.muted = false : video.muted = true;
+        if (video.played.length > 0) {
+            video.pause()
+        } else {
+            video.play();
+        }
+    
     }
 
-    soundOff() {
+    soundOff(e) {
         const bool = this.state.sound ? false : true;
+        const opposite = bool ? false : true
+        e.currentTarget.previousElementSibling.muted = opposite;
         this.setState({ sound: bool });
     }
 
@@ -42,12 +49,26 @@ class DetailsModal extends React.Component {
         return match.length > 0
     }
 
+    toggleListItem() {
+        if (this.onList()) {
+            const item = this.props.myList.filter(listItem =>
+                listItem.movie_id === this.props.movie.id
+            )
+            // debugger
+            return this.props.deleteListItem(item[0].id)
+        } else {
+            return this.props.createListItem(this.props.movie.id, this.props.currentProfileId)
+        }
+    }
+
+
+
     render() {
         const displayLength = this.convertLength(this.props.movie.length);
         const soundBtn = this.state.sound ? window.volumeOff : window.volumeOn;
-        const listButton = this.onList() ? '-' : '+';
+        const listButton = this.onList() ? '✓' : '+';
         return (
-        <div onMouseOver={this.modalAutoplay} className='modal'>
+        <div onMouseEnter={this.modalAutoplay} className='modal'>
             <button onClick={this.props.toggleModal} className='exit-modal'>X</button>
             <img className='modal-thumbnail hide' src={this.props.movie.photoUrl} alt="" />
             <div className='modal-vid-container'>
@@ -56,22 +77,20 @@ class DetailsModal extends React.Component {
                     <Link to={`/watch/${this.props.movie.id}`}className='modal-play'>&#9658; Play</Link>
                     <button 
                         id='modal-add-list'
-                        onClick={() =>
-                            this.props.createListItem(this.props.movie.id, this.props.currentUserId)
-                        }
+                        onClick={ this.toggleListItem }
                         >{listButton}</button>
                 </div>
 
                 <video
                     id='modal-vid'
-                    src={window.movie}
+                    src={window.movie2}
                     onEnded={this.onEnd}
                 ></video>
 
 
                 <img src={soundBtn}
                     className='modal-sound-off'
-                    onClick={this.props.soundOff} />
+                    onClick={this.soundOff} />
             </div>
 
             <div className='modal-details'>

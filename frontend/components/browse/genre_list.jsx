@@ -1,10 +1,22 @@
 import React from "react";
 import MovieDetail from './movie_detail';
-
+import { HashLink } from 'react-router-hash-link';
 
 class GenreList extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
+        this.state = {
+            xoffset: 75,
+            yoffset: 0,
+            delta: 300,
+            leftArrow: -100,
+            rightArrow: 75,
+            items: 1
+        };
+
+        this.scrollLeft = this.scrollLeft.bind(this);
+        this.scrollRight = this.scrollRight.bind(this);
+        this.itemCount = this.itemCount.bind(this);
         
     };
 
@@ -22,27 +34,66 @@ class GenreList extends React.Component {
             const selectedMovies = selectedTags.map(tag =>
                 this.props.movies[tag.movie_id]
             );
-
+            
             return selectedMovies;
         }
       
     }
 
-    leftScroll(e) {
-        e.target.parentElement.scrollLeft += 200;
-    };
+    scrollLeft(e) {
+        debugger
+        const lastItem = e.currentTarget.parentElement.lastElementChild.previousElementSibling
+        const coord = lastItem.getBoundingClientRect();
+        if (window.innerWidth - coord.right >= 50) {
+            return false
+        } else {
+            // const list = e.currentTarget.parentElement.offsetLeft; 
+            
+            const leftArrow = document.getElementById('left-arrow');
+            const rightArrow = document.getElementById('right-arrow');
+            this.setState({xoffset: this.state.xoffset -= this.state.delta});
+            this.setState({leftArrow: this.state.leftArrow += this.state.delta});
+            this.setState({ rightArrow: this.state.rightArrow -= this.state.delta })
+        }
+    }
 
-    rightScroll(e) {
-        e.target.parentElement.scrollLeft -= 200;
-    };
+    itemCount(e) {
+        // debugger
+        this.setState({items: e.currentTarget.children.length - 2 });
+    }
+
+
+    scrollRight(e) {
+        if (this.state.xoffset === 75) {
+            return false
+        } else {
+            // const list = e.currentTarget.parentElement.offsetLeft
+            const rightArrow = document.getElementById('right-arrow');
+            const leftArrow = document.getElementById('left-arrow');
+            this.setState({ xoffset: this.state.xoffset += this.state.delta });
+            this.setState({ rightArrow: this.state.rightArrow += this.state.delta });
+            this.setState({ leftArrow: this.state.leftArrow -= this.state.delta });
+        }
+    }
+
+    // leftScroll(e) {
+    //     e.target.parentElement.scrollLeft += 200;
+    // };
+
+    // rightScroll(e) {
+    //     e.target.parentElement.scrollLeft -= 200;
+    // };
+
+
 
     render() {
         const renderMovies = this.selectMovies();
         const display = renderMovies ? renderMovies.map(movie => 
             <MovieDetail 
                 myList={this.props.myList}
-                currentUserId={this.props.currentUserId}
+                currentProfileId={this.props.currentProfileId}
                 createListItem={this.props.createListItem} 
+                deleteListItem={this.props.deleteListItem}
                 key={movie.id}
                 movie={movie}
                 tags={this.props.tags}
@@ -50,13 +101,23 @@ class GenreList extends React.Component {
                 />
             ) : null;
         return (
-    
-            <div className='genre-list'>
-                {display}
-                {/* <button id='left-btn' onClick={this.rightScroll}>{'<'}</button>
-                <button id='right-btn' onClick={this.leftScroll}>{'>'}</button> */}
-            </div>
-          
+                <div className='genre-list' 
+                    onLoad={this.itemCount}
+                    style ={{
+                        position: "relative",
+                        left: `${this.state.xoffset}px`}}
+                    >
+                    <p id='left-arrow' 
+                        style={{ left: `${this.state.leftArrow}px` }}
+                        onClick={this.scrollLeft}>&#8249;</p>
+                        {display}
+                    <p id='right-arrow' 
+                        onClick={this.scrollRight}
+                        style={{ right: `${this.state.rightArrow}px` }}
+                        >&#8250;</p>
+                    
+                </div>
+            
            
         );
     }
@@ -64,3 +125,4 @@ class GenreList extends React.Component {
 
 
 export default GenreList;
+// onClick = {() => onClick(visibility)}

@@ -16,6 +16,10 @@ class ProfilesIndex extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchMovies();
+    }
+
     handleClick() {
         this.setState({show: 'add profile'})
     }
@@ -25,6 +29,12 @@ class ProfilesIndex extends React.Component {
     }
 
     render() {
+        debugger
+        const addProfile = this.props.profiles.length === 4 ? null : 
+            <li className='add-profile-container' onClick={() => this.handleClick()}>
+                <img id='add-profile' src={window.addProfile} />
+                <p>Add Profile</p>
+            </li>
         
         const profiles = this.props.profiles.map(profile => (
             <ProfileIndexItem 
@@ -42,10 +52,11 @@ class ProfilesIndex extends React.Component {
                 <h1>Who's Watching?</h1>
                 <ul className='profiles-list'>
                     {profiles}
-                    <li className='add-profile-container' onClick={() => this.handleClick()}>
+                    {addProfile}
+                    {/* <li className='add-profile-container' onClick={() => this.handleClick()}>
                         <img id='add-profile' src={window.addProfile}/>
                         <p>Add Profile</p>
-                    </li>
+                    </li> */}
                 </ul> 
                 <Link className='manage-link' to='/manageprofiles'>
                     <p className='manage'>Manage Profiles</p>
