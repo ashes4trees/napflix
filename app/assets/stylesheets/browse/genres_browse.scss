@@ -97,7 +97,7 @@
     top: -100px;
     background: rgb(34, 34, 34);
     z-index: 20;
-    transition: 1s ease-in-out;
+    transition: fadeOut 2s ease;
 }
 
 .sound-off {
@@ -173,7 +173,7 @@
     opacity: 0;
     border-radius: 4px;
     padding: 0;
-    transition: none;
+    transition: fadeIn 2s ease;
 }
 
 

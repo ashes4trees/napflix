@@ -7,7 +7,7 @@
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 
-    z-index: 50;
+    z-index: 60;
     width: 1000px;
     height: 1000px;
     background: rgb(34, 34, 34);
@@ -18,6 +18,8 @@
 }
 
 #modal-vid {
+    transition: fadeIn ease 2s;
+    
     width: 1000px;
     height: 562px;
     cursor: auto;
@@ -31,16 +33,23 @@
     height: 562px;
     opacity: 1;
     z-index: 60;
-    transition: fadeIn ease 2s;
+    transition: fadeOut ease 2s;
+
     cursor: auto;
 }
 
 @keyframes fadeIn {
-  0% {opacity:0;}
+  0% {opacity:0}
   100% {opacity:1}
 }
 
+@keyframes fadeOut {
+  100% {opacity:1}
+  0% {opacity:0}
+}
+
 .hide {
+    transition: fadeIn ease 2s;
     position: absolute;
     // top: 70%;
     left: 3px;

@@ -11,17 +11,32 @@ class DetailsModal extends React.Component {
         this.modalAutoplay = this.modalAutoplay.bind(this);
         this.toggleListItem = this.toggleListItem.bind(this);
         this.soundOff = this.soundOff.bind(this);
+       
     }
 
     modalAutoplay(e) {
+        
+        this.clearTimers();
         const video = e.currentTarget.children[2].children[2];
+        video.classList.remove('idle');
+        video.previousElementSibling.classList.remove('invisible');
         this.state.sound ? video.muted = false : video.muted = true;
-        if (video.played.length > 0) {
-            video.pause()
-        } else {
-            video.play();
-        }
+        // video.previousElementSibling.classList.toggle('invisible');
+        // if (video.played.length > 0) {
+        //     video.pause();
+        // } else {
+        video.play();
+        // }
     
+    }
+
+    clearTimers() {
+        let id = window.setTimeout(() => { }, 0);
+
+        while (id--) {
+            window.clearTimeout(id);
+            console.log('clear')
+        }
     }
 
     soundOff(e) {
@@ -39,8 +54,8 @@ class DetailsModal extends React.Component {
     }
 
     onEnd(e) {
-        e.currentTarget.classList.toggle('hide');
-        e.currentTarget.parentElement.previousElementSibling.classList.toggle('hide');
+        e.currentTarget.classList.add('hide');
+        e.currentTarget.parentElement.previousElementSibling.classList.remove('hide');
 
     }
 

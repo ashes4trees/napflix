@@ -15,7 +15,9 @@ class MovieDetail extends React.Component {
     this.soundOff = this.soundOff.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleListItem = this.toggleListItem.bind(this);
-    // this.playVid = this.playVid.bind(this);
+    this.clearTimers = this.clearTimers.bind(this);
+    this.stop = this.stop.bind(this);
+    this.stopAll = this.stopAll.bind(this);
     }
 
     movieGenres() {
@@ -26,7 +28,7 @@ class MovieDetail extends React.Component {
 
     autoplay(e) {
         
-        
+        console.log('play')
         const video = e.currentTarget.children[1].children[1];
         // debugger
         video.closest('.genre-list').classList.add('inactive');
@@ -36,12 +38,14 @@ class MovieDetail extends React.Component {
         video.parentElement.previousElementSibling.classList.add('invisible');
         this.state.sound ? video.muted = false : video.muted = true
         // video.currentTime = 0;
-        video.play();
-        // setTimeout(() => this.playVid(video), 200)
+        // video.play();
+        
+        setTimeout(() => video.play(), 1000);
+
     }
 
     stop(e) {
-        console.log('stop')
+        this.clearTimers();
         const video = e.currentTarget.children[1].children[1];
         video.pause();
         video.classList.add('idle')
@@ -51,8 +55,18 @@ class MovieDetail extends React.Component {
         
     }
 
+    clearTimers() {
+        let id = window.setTimeout(() => { }, 0);
+
+        while (id--) {
+            window.clearTimeout(id);
+            console.log('clear')
+        } 
+    }
+
     stopAll() {
-        const videos = Object.values(document.querySelectorAll('video'));
+        this.clearTimers();
+        const videos = Object.values(document.querySelectorAll('.thumbnail-vid'));
         videos.forEach(video => {
             video.pause();
             video.classList.add('idle');
@@ -113,6 +127,7 @@ class MovieDetail extends React.Component {
                 myList={this.props.myList}
                 createListItem={this.props.createListItem}
                 deleteListItem={this.props.deleteListItem}
+                clearTimers={this.clearTimers}
                 currentProfileId={this.props.currentProfileId}
                 movie={this.props.movie} 
                 toggleModal={this.toggleModal}
@@ -137,6 +152,7 @@ class MovieDetail extends React.Component {
                 <div className='details-vid-container'>
                     <p className='details-title invisible'>{this.props.movie.title}</p>
                     <video
+                        id={this.props.movie.id}
                         className='thumbnail-vid idle'
                         src={window.movie2}
                         type='video/mp4'
