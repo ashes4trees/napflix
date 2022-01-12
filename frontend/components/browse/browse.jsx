@@ -43,18 +43,7 @@ class Browse extends React.Component {
         return (
         
             display
-                // <div className='profiles-index-main'>
-                // <ProfilesIndex
-                //     show={this.state.show}
-                //     userId={this.props.currentUserId}
-                //     fetchProfiles={this.props.fetchProfiles}
-                //     profiles={this.props.profiles}
-                //     switchProfile={this.props.switchProfile}
-                // />
-                // <SplashHeader/>
-                // <button onClick={this.props.logout}>LOGOUT</button>
-                // <h1>MOVIES GO HERE...</h1>
-                // </div>
+        
                 
         )
     }

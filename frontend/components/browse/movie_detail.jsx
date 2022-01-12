@@ -154,7 +154,7 @@ class MovieDetail extends React.Component {
                     <video
                         id={this.props.movie.id}
                         className='thumbnail-vid idle'
-                        src={window.movie2}
+                        src={this.props.movie.videoUrl}
                         type='video/mp4'
                         
                         // onEnded={this.onEnd}

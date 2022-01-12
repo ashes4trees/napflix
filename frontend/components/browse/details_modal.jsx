@@ -98,7 +98,7 @@ class DetailsModal extends React.Component {
 
                 <video
                     id='modal-vid'
-                    src={window.movie2}
+                    src={this.props.movie.videoUrl}
                     onEnded={this.onEnd}
                 ></video>
 
