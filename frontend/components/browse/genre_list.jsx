@@ -41,7 +41,7 @@ class GenreList extends React.Component {
     }
 
     scrollLeft(e) {
-        debugger
+        
         const lastItem = e.currentTarget.parentElement.lastElementChild.previousElementSibling
         const coord = lastItem.getBoundingClientRect();
         if (window.innerWidth - coord.right >= 50) {
@@ -58,7 +58,6 @@ class GenreList extends React.Component {
     }
 
     itemCount(e) {
-        // debugger
         this.setState({items: e.currentTarget.children.length - 2 });
     }
 
@@ -109,10 +108,10 @@ class GenreList extends React.Component {
                     >
                     <p id='left-arrow' 
                         style={{ left: `${this.state.leftArrow}px` }}
-                        onClick={this.scrollLeft}>&#8249;</p>
+                        onClick={this.scrollRight}>&#8249;</p>
                         {display}
                     <p id='right-arrow' 
-                        onClick={this.scrollRight}
+                        onClick={this.scrollLeft}
                         style={{ right: `${this.state.rightArrow}px` }}
                         >&#8250;</p>
                     
