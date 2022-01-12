@@ -5,14 +5,14 @@ class ShowMovie extends React.Component {
         super(props)
         this.goBack = this.goBack.bind(this);
         this.showControls = this.showControls.bind(this);
-        
+        this.unmute = this.unmute.bind(this);
     }
 
     showControls() {
         this.clearTimers();
         const arrow = document.getElementById('back-arrow')
         arrow.classList.remove('hidden');
-        setTimeout(() => arrow.classList.add('hidden'), 5000);
+        setTimeout(() => arrow.classList.add('hidden'), 3000);
     }
 
     clearTimers() {
@@ -22,6 +22,10 @@ class ShowMovie extends React.Component {
             window.clearTimeout(id);
             console.log('clear')
         }
+    }
+
+    unmute(e) {
+        e.currentTarget.muted = false
     }
 
     goBack() {
@@ -44,7 +48,8 @@ class ShowMovie extends React.Component {
                     >&#8592;</p>
                 <video
                     autoPlay
-                    // onLoad={this.unmute}
+                    muted
+                    // onPlaying={this.unmute}
                     className='show-movie'
                     src={this.props.currentMovie.videoUrl}
                     controls width='1000'></video>

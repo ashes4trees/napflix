@@ -1,8 +1,10 @@
 
 
 .movie-container {
+    overflow: hidden;
     margin: 0 auto;
-    width: 100%;
+    width: auto;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
