@@ -8,6 +8,7 @@ import Splash from "./splash/splash";
 import ManageProfilesContainer from '../components/profiles/manage_profiles_container';
 import ShowMovieContainer from '../components/movies/show_movie_container';
 import MyListContainer from '../components/myList/my_list_container';
+import SearchContainer from '../components/search/search_container';
 
 const App = () => (
     <div>
@@ -15,6 +16,7 @@ const App = () => (
             <ProtectedRoute exact path='/watch/:movieId' component={ShowMovieContainer} />
             <ProtectedRoute exact path='/browse/my-list' component={MyListContainer} />
             <ProtectedRoute exact path='/browse' component={BrowseContainer} />
+            <ProtectedRoute exact path='/search' component={SearchContainer} />
             <ProtectedRoute exact path='/manageprofiles' component={ManageProfilesContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

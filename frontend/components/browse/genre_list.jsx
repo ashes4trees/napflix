@@ -11,12 +11,12 @@ class GenreList extends React.Component {
             delta: 300,
             leftArrow: -100,
             rightArrow: 75,
-            items: 1
+            // items: 1
         };
 
         this.scrollLeft = this.scrollLeft.bind(this);
         this.scrollRight = this.scrollRight.bind(this);
-        this.itemCount = this.itemCount.bind(this);
+        // this.itemCount = this.itemCount.bind(this);
         
     };
 
@@ -53,13 +53,13 @@ class GenreList extends React.Component {
             const rightArrow = document.getElementById('right-arrow');
             this.setState({xoffset: this.state.xoffset -= this.state.delta});
             this.setState({leftArrow: this.state.leftArrow += this.state.delta});
-            this.setState({ rightArrow: this.state.rightArrow -= this.state.delta })
+            this.setState({ rightArrow: this.state.rightArrow -= this.state.delta });
         }
     }
 
-    itemCount(e) {
-        this.setState({items: e.currentTarget.children.length - 2 });
-    }
+    // itemCount(e) {
+    //     this.setState({items: e.currentTarget.children.length - 2 });
+    // }
 
 
     scrollRight(e) {
@@ -74,14 +74,6 @@ class GenreList extends React.Component {
             this.setState({ leftArrow: this.state.leftArrow -= this.state.delta });
         }
     }
-
-    // leftScroll(e) {
-    //     e.target.parentElement.scrollLeft += 200;
-    // };
-
-    // rightScroll(e) {
-    //     e.target.parentElement.scrollLeft -= 200;
-    // };
 
 
 
@@ -101,7 +93,7 @@ class GenreList extends React.Component {
             ) : null;
         return (
                 <div className='genre-list' 
-                    onLoad={this.itemCount}
+                    // onLoad={this.itemCount}
                     style ={{
                         position: "relative",
                         left: `${this.state.xoffset}px`}}
@@ -109,7 +101,9 @@ class GenreList extends React.Component {
                     <p id='left-arrow' 
                         style={{ left: `${this.state.leftArrow}px` }}
                         onClick={this.scrollRight}>&#8249;</p>
+
                         {display}
+
                     <p id='right-arrow' 
                         onClick={this.scrollLeft}
                         style={{ right: `${this.state.rightArrow}px` }}

@@ -29,7 +29,7 @@ class ProfilesIndex extends React.Component {
     }
 
     render() {
-        debugger
+        
         const addProfile = this.props.profiles.length === 4 ? null : 
             <li className='add-profile-container' onClick={() => this.handleClick()}>
                 <img id='add-profile' src={window.addProfile} />
