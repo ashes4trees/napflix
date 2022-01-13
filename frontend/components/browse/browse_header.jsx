@@ -70,7 +70,7 @@ class BrowseHeader extends React.Component {
                         type="text"
                         onChange={this.update}
                     />
-                    <label id={filled}>Title</label>
+                    <label id={filled}>Title, Genre, Keyword</label>
                     <p
                         className={exitVisible}
                         onClick={this.closeSearch}
