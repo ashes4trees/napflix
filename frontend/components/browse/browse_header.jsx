@@ -33,7 +33,7 @@ class BrowseHeader extends React.Component {
         this.setState({ search: e.currentTarget.value });
         this.props.searchTitles(e.currentTarget.value);
         this.props.searchGenres(e.currentTarget.value);
-        // this.props.updateSearch(e.currentTarget.value)
+       
     }
 
     openSearch() {
@@ -42,8 +42,7 @@ class BrowseHeader extends React.Component {
     }
 
     closeSearch() {
-        // console.log('close')
-        // this.setState({searching: false});
+       
         if (this.props.history.location.pathname.startsWith('/search')) {
             this.props.history.push('/browse');
         } else {
@@ -56,7 +55,7 @@ class BrowseHeader extends React.Component {
         const searchFn = this.state.searching ?
             null : this.openSearch;
         const filled = this.state.search === '' ? '' : 'search-filled';
-        // const exitVisible = this.state.search === '' ? 'exit-hidden' : 'exit-search';
+        
         const searchImage = this.state.searching ?
             (
                 <div className='search-bar'>

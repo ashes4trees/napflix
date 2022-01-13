@@ -21,12 +21,9 @@ class DetailsModal extends React.Component {
         video.classList.remove('idle');
         video.previousElementSibling.classList.remove('invisible');
         this.state.sound ? video.muted = false : video.muted = true;
-        // video.previousElementSibling.classList.toggle('invisible');
-        // if (video.played.length > 0) {
-        //     video.pause();
-        // } else {
+      
         video.play();
-        // }
+
     
     }
 
@@ -35,7 +32,7 @@ class DetailsModal extends React.Component {
 
         while (id--) {
             window.clearTimeout(id);
-            console.log('clear')
+           
         }
     }
 
@@ -69,7 +66,7 @@ class DetailsModal extends React.Component {
             const item = this.props.myList.filter(listItem =>
                 listItem.movie_id === this.props.movie.id
             )
-            // debugger
+            
             return this.props.deleteListItem(item[0].id)
         } else {
             return this.props.createListItem(this.props.movie.id, this.props.currentProfileId)

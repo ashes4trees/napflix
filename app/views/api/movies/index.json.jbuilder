@@ -5,6 +5,7 @@ json.movies do
             json.extract! movie, :id, :title, :year, :summary, :rating, :length
             json.photoUrl url_for(movie.photo)
             json.videoUrl url_for(movie.video)
+            json.thumbnailUrl url_for(movie.thumbnail)
         end
     end
 end

@@ -27,17 +27,13 @@ class SignupForm extends React.Component {
         this.props.resetSessionErrors();
         const user = Object.assign({}, this.state);
         this.props.signup(user)
-            // .then(() => this.props.history.push('/browse'))
+           
     }
 
-    // componentDidUpdate() {
-        
-    //     this.props.resetSessionErrors();
-    // }
+ 
 
     render() {
-        // debugger
-        // this.props.resetSessionErrors();
+       
         const emailFilled = this.state.email === '' ? '' : 'filled';
         const passFilled = this.state.password === '' ? '' : 'filled';
         const passError = this.props.errors.filter(error => error.includes('Password'));
@@ -76,7 +72,7 @@ class SignupForm extends React.Component {
                             <p className='signup-error'>{passError}</p>
                        
                         <button className='signup-btn' type='submit'>Sign Up</button>
-                        {/* <button onClick={this.demoUser}>Login as Demo User</button> */}
+                        
                     </form>
                 </div>
                 <div className='signup-footer'>

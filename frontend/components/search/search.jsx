@@ -55,12 +55,9 @@ class Search extends React.Component {
         }
     }
     
-    // componentDidUpdate() {
-    //     this.searchTitles();
-    // }
+
 
     render() {
-        // debugger
         
         const movieSet = new Set(this.state.movieMatches.flat().concat(this.state.genreMatches.flat()));
         const displayMovies = Array.from(movieSet);

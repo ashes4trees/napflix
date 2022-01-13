@@ -28,17 +28,15 @@ class MovieDetail extends React.Component {
 
     autoplay(e) {
         
-        console.log('play')
+        
         const video = e.currentTarget.children[1].children[1];
-        // debugger
-        // video.closest('.genre-list').classList.add('inactive');
+       
         video.previousElementSibling.classList.remove('invisible');
         video.nextElementSibling.classList.remove('invisible');
         video.classList.remove('idle');
         video.parentElement.previousElementSibling.classList.add('invisible');
         this.state.sound ? video.muted = false : video.muted = true
-        // video.currentTime = 0;
-        // video.play();
+       
         
         setTimeout(() => video.play(), 1000);
 
@@ -60,7 +58,7 @@ class MovieDetail extends React.Component {
 
         while (id--) {
             window.clearTimeout(id);
-            console.log('clear')
+
         } 
     }
 
@@ -91,7 +89,7 @@ class MovieDetail extends React.Component {
 
     onEnd(e) {
         e.currentTarget.classList.add('idle');
-        // e.currentTarget.parentElement.nextElementSibling.classList.toggle('bump')
+
         e.currentTarget.parentElement.previousElementSibling.classList.remove('invisible');
 
     }
@@ -107,7 +105,7 @@ class MovieDetail extends React.Component {
             const item = this.props.myList.filter(listItem => 
                 listItem.movie_id === this.props.movie.id
                 )
-            // debugger
+
             return this.props.deleteListItem(item[0].id)
         } else {
             return this.props.createListItem(this.props.movie.id, this.props.currentProfileId)
@@ -116,7 +114,7 @@ class MovieDetail extends React.Component {
 
 
     render() {
-        // debugger
+     
         if (this.state.showModal) {
             this.stopAll()
         }
