@@ -11,13 +11,16 @@ const persistConfig = {
     whitelist: ['entities', 'session']
 };
 
+
+const middlewares = [thunk];
+
 if (process.env.NODE_ENV !== "production") {
     // must use 'require' (import only allowed at top of file)
     const { logger } = require("redux-logger");
     middlewares.push(logger);
 }
 
-const middlewares = [thunk];
+
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

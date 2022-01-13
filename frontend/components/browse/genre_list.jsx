@@ -8,7 +8,7 @@ class GenreList extends React.Component {
         this.state = {
             xoffset: 75,
             yoffset: 0,
-            delta: 300,
+            delta: 200,
             leftArrow: -100,
             rightArrow: 75,
             // items: 1
@@ -44,7 +44,7 @@ class GenreList extends React.Component {
         
         const lastItem = e.currentTarget.parentElement.lastElementChild.previousElementSibling
         const coord = lastItem.getBoundingClientRect();
-        if (window.innerWidth - coord.right >= 50) {
+        if (window.innerWidth - coord.right >= 20) {
             return false
         } else {
             // const list = e.currentTarget.parentElement.offsetLeft; 

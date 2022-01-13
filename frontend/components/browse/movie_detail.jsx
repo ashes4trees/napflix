@@ -144,7 +144,7 @@ class MovieDetail extends React.Component {
                     onMouseLeave={this.stop}
                 >
                     <img className='thumbnail' 
-                        src={this.props.movie.photoUrl} 
+                        src={this.props.movie.thumbnailUrl} 
                         />
 
                     <div className='details-vid-container'>
