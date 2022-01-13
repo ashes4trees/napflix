@@ -31,7 +31,7 @@ class MovieDetail extends React.Component {
         console.log('play')
         const video = e.currentTarget.children[1].children[1];
         // debugger
-        video.closest('.genre-list').classList.add('inactive');
+        // video.closest('.genre-list').classList.add('inactive');
         video.previousElementSibling.classList.remove('invisible');
         video.nextElementSibling.classList.remove('invisible');
         video.classList.remove('idle');
@@ -145,52 +145,48 @@ class MovieDetail extends React.Component {
                     onMouseEnter={this.autoplay}
                     onMouseLeave={this.stop}
                 >
-                <img className='thumbnail' 
-                    src={this.props.movie.photoUrl} 
-                    />
+                    <img className='thumbnail' 
+                        src={this.props.movie.photoUrl} 
+                        />
 
-                <div className='details-vid-container'>
-                    <p className='details-title invisible'>{this.props.movie.title}</p>
-                    <video
-                        id={this.props.movie.id}
-                        className='thumbnail-vid idle'
-                        src={this.props.movie.videoUrl}
-                        type='video/mp4'
+                    <div className='details-vid-container'>
+                        <p className='details-title invisible'>{this.props.movie.title}</p>
+                        <video
+                            id={this.props.movie.id}
+                            className='thumbnail-vid idle'
+                            src={this.props.movie.videoUrl}
+                            type='video/mp4'
+                            // onEnded={this.onEnd}
+                        ></video>
+
                         
-                        // onEnded={this.onEnd}
-                    ></video>
-
-                    
-                    <img src={soundBtn} 
-                        className='sound-off invisible'
-                        onClick={this.soundOff} />
-                </div>
-                
-                {/* <img src={window.volume} className='sound-off invisible' /> */}
+                        <img src={soundBtn} 
+                            className='sound-off invisible'
+                            onClick={this.soundOff} />
+                    </div>
                 
                 
-                <div className='movie-details hidden'>
-                    <div className='details-btns'>
-                        <div className='details-left-btns'>
-                            <Link to={`/watch/${this.props.movie.id}`} id='details-play'>&#9658;</Link>
-                            <button 
-                                id='details-add-list'
-                                onClick={this.toggleListItem}
-                                >{listButton}</button>
+                    <div className='movie-details hidden'>
+                        <div className='details-btns'>
+                            <div className='details-left-btns'>
+                                <Link to={`/watch/${this.props.movie.id}`} id='details-play'>&#9658;</Link>
+                                <button 
+                                    id='details-add-list'
+                                    onClick={this.toggleListItem}
+                                    >{listButton}</button>
+                            </div>
+                            <button onClick={this.toggleModal} id='details-info-btn'>
+                                <p>&#8964;</p>
+                            </button>
+                        
                         </div>
-                        <button onClick={this.toggleModal} id='details-info-btn'>
-                            <p>&#8964;</p>
-                        </button>
+                        <p className='details-rating'>{this.props.movie.rating}</p>
+                        <div className='details-tags' >
+                            {display}
+                        </div>
                     
-                        {/* <button className='details-info-btn'>╲╱</button> */}
                     </div>
-                    <p className='details-rating'>{this.props.movie.rating}</p>
-                    <div className='details-tags' >
-                        {display}
-                    </div>
-                
-                </div>
-                {modal}
+                    {modal}
             </div>
         
         )

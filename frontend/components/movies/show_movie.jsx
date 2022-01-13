@@ -25,14 +25,15 @@ class ShowMovie extends React.Component {
     }
 
     goBack() {
-        this.props.history.push('/browse');
+        this.props.history.goBack();
+        // this.props.history.push('/browse');
     }
 
     render() {
         
         // const movie = this.props.movies.filter(movie => 
         //     movie.id === this.props.match.params.movieId)
-        const video = movie.videoUrl
+        // const video = currenmovie.videoUrl
         return(
             <div 
                 className='movie-container'
