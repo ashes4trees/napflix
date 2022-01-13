@@ -1,4 +1,4 @@
-import React from "react";
+
 import { connect } from "react-redux";
 import { createListItem, deleteListItem } from "../../actions/movie_actions";
 import { logout } from "../../actions/session_actions";

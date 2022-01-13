@@ -1,6 +1,6 @@
 import React from "react";
 import MovieDetail from './movie_detail';
-import { HashLink } from 'react-router-hash-link';
+
 
 class GenreList extends React.Component {
     constructor(props) {
@@ -118,4 +118,3 @@ class GenreList extends React.Component {
 
 
 export default GenreList;
-// onClick = {() => onClick(visibility)}

@@ -1,4 +1,3 @@
-import React from "react";
 import { connect } from "react-redux";
 import Search from './search';
 import { resetCurrentProfile } from "../../actions/profile_actions";

@@ -3,7 +3,6 @@ import React from 'react';
 import ProfileIndexItem from './profile_index_item';
 import { Link } from 'react-router-dom';
 import AddProfile from './add_profile';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 class ProfilesIndex extends React.Component {

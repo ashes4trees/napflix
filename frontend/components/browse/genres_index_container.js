@@ -1,4 +1,4 @@
-import React from "react";
+
 import { connect } from "react-redux";
 import GenresIndex from './genres_index';
 import { logout } from '../../actions/session_actions';

@@ -1,6 +1,5 @@
 import React from "react";
 import SplashHeader from "./splash_header";
-import SignupFooter from './signup_footer';
 
 
 class SignupForm extends React.Component {

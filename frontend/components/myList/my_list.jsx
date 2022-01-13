@@ -1,5 +1,4 @@
 import React from "react";
-import GenreList from "../browse/genre_list";
 import BrowseHeader from "../browse/browse_header";
 import MovieDetail from "../browse/movie_detail";
 

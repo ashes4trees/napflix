@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { connect } from 'react-redux';
 import { updateProfile, fetchProfiles, deleteProfile } from '../../actions/profile_actions';
 import ManageProfiles from './manage_profiles';

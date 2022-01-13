@@ -1,7 +1,6 @@
 import React from "react";
 import DetailsModal from "./details_modal";
 import { Link } from "react-router-dom";
-import { debounce } from "debounce";
 
 class MovieDetail extends React.Component {
     constructor(props) {
