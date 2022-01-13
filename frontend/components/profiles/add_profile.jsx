@@ -8,7 +8,8 @@ class AddProfile extends React.Component {
         super(props)
         this.state = {
             user_id: this.props.userId,
-            name: ''
+            name: '',
+            error: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -19,9 +20,16 @@ class AddProfile extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        const profile = Object.assign({}, this.state);
-        dispatch(createProfile(profile));
-        window.location.reload();
+        if (this.state.name.length === 0) {
+            this.setState({error: "Name can't be blank."})
+        } else {
+            const profile = Object.assign({}, 
+                {user_id: this.state.user_id,
+                name: this.state.name
+                });
+            dispatch(createProfile(profile));
+            window.location.reload();
+        } 
     }
 
 
@@ -49,9 +57,12 @@ class AddProfile extends React.Component {
                         </div>
                         
                     </div>
-                    <form className='add-profile-btns' onSubmit={this.handleSubmit}>
-                        <button type='submit' className='save-btn'>Continue</button>
-                        <button onClick={this.props.handleCancel} className='cancel-btn'>Cancel</button>
+                    <form className='add-profile-bottom' onSubmit={this.handleSubmit}>
+                        <p className='profile-error'>{this.state.error}</p>
+                        <div className='add-profile-btns'>
+                            <button type='submit' className='save-btn'>Continue</button>
+                            <button onClick={this.props.handleCancel} className='cancel-btn'>Cancel</button>
+                        </div>
                     </form>
                 </div>
                 

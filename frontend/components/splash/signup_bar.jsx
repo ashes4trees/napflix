@@ -22,7 +22,6 @@ class SignupBar extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // this.setState({error: ''})
         const email = this.state.email;
         const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
         

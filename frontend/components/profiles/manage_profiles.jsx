@@ -3,6 +3,7 @@ import ProfileIndexItem from './profile_index_item';
 import { Link } from "react-router-dom";
 import EditProfile from "./edit_profile";
 import AddProfile from "./add_profile";
+import { resolvePath } from "react-router";
 
 class ManageProfiles extends React.Component {
     constructor(props) {
@@ -41,7 +42,7 @@ class ManageProfiles extends React.Component {
 
     handleDelete(profileId) {
         this.props.deleteProfile(profileId);
-        setTimeout(() => this.setState({ show: 'profiles' }), 500);
+        setTimeout(() => this.setState({ show: 'profiles' }), 4000);
     }
 
 

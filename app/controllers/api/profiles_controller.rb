@@ -35,7 +35,8 @@ class Api::ProfilesController < ApplicationController
     def destroy
         @profile = current_user.profiles.find_by(id: params[:id])
         if @profile && @profile.destroy
-            render :show
+            @profiles = current_user.profiles
+            render :index
         else
             render json: ['Something went wrong'], status: 401
         end

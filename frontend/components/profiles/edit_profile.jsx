@@ -7,7 +7,8 @@ class EditProfile extends React.Component {
         super(props) 
         
         this.state = { id: this.props.profile.id,
-            name: this.props.profile.name }
+            name: this.props.profile.name,
+            error: '' }
         this.handleEditSubmit = this.handleEditSubmit.bind(this)
     }
 
@@ -19,9 +20,16 @@ class EditProfile extends React.Component {
 
     handleEditSubmit(e) {
         e.preventDefault();
-        const updatedProfile = Object.assign({}, this.state)
-        this.props.updateProfile(updatedProfile);
-        window.location.reload();
+        if (this.state.name.length === 0) {
+            this.setState({ error: "Name can't be blank." })
+        } else {
+            const updatedProfile = Object.assign({}, 
+                {id: this.state.id,
+                name:this.state.name
+            });
+            this.props.updateProfile(updatedProfile);
+            window.location.reload();
+        }
     }
 
     render () {
@@ -45,20 +53,23 @@ class EditProfile extends React.Component {
                                  />
                         </div>
                        
-
-                        <div className='edit-buttons-container'>
-                            <button 
-                                className='save-btn' 
-                                onClick={this.handleEditSubmit}>Save</button>
-                            <button 
-                                className='cancel-btn' 
-                                onClick={() => this.props.handleCancel()}
+                        <div className='edit-profile-bottom'>  
+                            <p className='profile-error'>{this.state.error}</p>
+                            <div className='edit-buttons-container'>
+                                <button
+                                    className='save-btn'
+                                    onClick={this.handleEditSubmit}>Save</button>
+                                <button
+                                    className='cancel-btn'
+                                    onClick={() => this.props.handleCancel()}
                                 >Cancel</button>
-                            <button
-                                className='cancel-btn' 
-                                onClick={() => this.props.handleDelete(this.state.id)}
-                            >Delete Profile</button>
+                                <button
+                                    className='cancel-btn'
+                                    onClick={() => this.props.handleDelete(this.state.id)}
+                                >Delete Profile</button>
+                            </div>
                         </div>
+                        
                     </form>
 
                     

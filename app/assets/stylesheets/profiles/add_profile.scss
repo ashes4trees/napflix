@@ -33,6 +33,7 @@
     width: 100%;
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 10px;
@@ -50,10 +51,13 @@
 .add-profile-input-container {
     position: relative;
     display: flex;
-    width: 50%;
+    // flex-wrap: wrap;
+    max-width: 50%;
     justify-content: flex-start;
     align-items: center;
 }
+
+
 
 .profile-name-input {
     position: relative;
@@ -82,40 +86,36 @@
     display: none;
 }
 
+.add-profile-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: fit-content;
+    border-top: 0.25px solid rgba(128, 128, 128, .4);
+    margin-top: 15px;
+//    border: 1px solid green;
+}
+
+
 .add-profile-btns {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    // border: 1px solid blue;
     width: 100%;
-    border-top: 0.25px solid rgba(128, 128, 128, .4);
-    margin-top: 10px;
-    padding-top: 20px;
+    height: 100px;
+
 }
 
-// .add-profile-content button {
-//     padding: 10px;
-//     border: 1px solid gray;
-//     color: gray;
-//     background: none;
-//     font-size: 24px;
-//     font-weight: 200;
-//     margin-right: 20px;
-//     cursor: pointer;
-// }
-
-// .add-profile-content button:hover {
-
-// }
+.add-profile-bottom .profile-error {
+    color: red;
+    width: fit-content;
+    height: 20px;
+    text-align: center;
+}
 
 
-// .add-profile-content button:first-child {
-//     background: white;
-//     color: black;
-//     border: none;
-// }
 
-// .add-profile-content button:first-child:hover {
-//     background: red;
-//     color: white;
-// }
 
 
