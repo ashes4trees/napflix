@@ -8,6 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 97vh;
+    width: auto;
+    overflow: hidden;
 }
 
 #back-arrow {
@@ -26,6 +29,6 @@
 }
 
 .show-movie {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 97vh;
 }

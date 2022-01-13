@@ -31,7 +31,6 @@ class GenresIndex extends React.Component {
 
     onEnd(e) {
         e.currentTarget.classList.toggle('hidden');
-        // e.currentTarget.parentElement.nextElementSibling.classList.toggle('bump')
         e.currentTarget.parentElement.previousElementSibling.classList.toggle('hidden');
 
     }
@@ -47,12 +46,6 @@ class GenresIndex extends React.Component {
         const selectedGenres = selectedTags.map(tag => this.props.genres[tag.genre_id - 1]);
         return selectedGenres;
     }
-
-    
-
-   
-
-
 
     render() {
         const tags = this.movieGenres();
