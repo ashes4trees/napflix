@@ -56,7 +56,7 @@ class BrowseHeader extends React.Component {
         const searchFn = this.state.searching ?
             null : this.openSearch;
         const filled = this.state.search === '' ? '' : 'search-filled';
-        const exitVisible = this.state.search === '' ? 'exit-hidden' : 'exit-search';
+        // const exitVisible = this.state.search === '' ? 'exit-hidden' : 'exit-search';
         const searchImage = this.state.searching ?
             (
                 <div className='search-bar'>
@@ -72,7 +72,7 @@ class BrowseHeader extends React.Component {
                     />
                     <label id={filled}>Title, Genre, Keyword</label>
                     <p
-                        className={exitVisible}
+                        className='exit-search'
                         onClick={this.closeSearch}
                     >X</p>
                 </div>

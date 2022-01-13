@@ -105,7 +105,7 @@ class GenresIndex extends React.Component {
                     logout={this.props.logout} 
                     resetProfile={this.props.resetProfile}/>
                 <div className='top-movie'>
-                    <img src={this.props.topMovie.photoUrl}/>
+                    <img src={window.eternal}/>
                     <h1>{this.props.topMovie.title}</h1>
                     <div className='top-movie-btns'>
                         <Link to={`/watch/${this.props.topMovie.id}`} className='modal-play'>&#9658; Play</Link>

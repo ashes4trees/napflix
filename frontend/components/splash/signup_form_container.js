@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SignupForm from './signup_form';
-import { signup } from '../../actions/session_actions';
+import { signup, resetSessionErrors } from '../../actions/session_actions';
 
 const mSTP = (state, ownProps) => ({
     errors: Object.values(state.errors.session),
@@ -9,7 +9,8 @@ const mSTP = (state, ownProps) => ({
 });
 
 const mDTP = dispatch => ({
-    signup: formUser => dispatch(signup(formUser))
+    signup: formUser => dispatch(signup(formUser)),
+    resetSessionErrors: () => dispatch(resetSessionErrors())
 });
 
 export default connect(mSTP, mDTP)(SignupForm);

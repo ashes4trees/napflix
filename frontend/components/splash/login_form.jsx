@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        props.resetSessionErrors();
     }
 
     handleDemo(e) {
@@ -29,6 +30,7 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.resetSessionErrors();
         const user = Object.assign({}, this.state);
         this.props.login(user);
     }

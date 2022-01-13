@@ -5,7 +5,8 @@ class SignupBar extends React.Component {
         super(props)
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            error: ''
         }
     this.handleSubmit = this.handleSubmit.bind(this);
     };
@@ -15,13 +16,23 @@ class SignupBar extends React.Component {
     };
 
     handleClick(e) {
-        return e => this.setState({ [email]: ''} )
+        e => this.setState({ [email]: '' });
+       
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        // this.setState({error: ''})
         const email = this.state.email;
-        this.props.history.push({ pathname: `/signup`, email: email })
+        const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+        
+        if (valid.test(email)) {
+            this.props.history.push({ pathname: `/signup`, email: email })
+        } else {
+            this.setState({error: 'Please enter a valid email.'})
+        }
+
+        
     }
     
     render() {
@@ -38,8 +49,8 @@ class SignupBar extends React.Component {
                     <div className='input-container'>
                         <input
                             className='email-input'
-                            type="text"
-                            onClick={this.handleClick()}
+                            type="email"
+                            // onClick={this.handleClick()}
                             onChange={this.update('email')}
                         />
                         <label id={filled}>Email address</label>
@@ -47,7 +58,9 @@ class SignupBar extends React.Component {
                     
                         
                     <button className='signup-bar-btn' type='submit'>Get Started &gt;</button>
+                    
                 </form>
+                <p className='splash-error'>{this.state.error}</p>
             </div>
             
         )

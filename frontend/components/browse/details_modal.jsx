@@ -92,6 +92,7 @@ class DetailsModal extends React.Component {
                     <Link to={`/watch/${this.props.movie.id}`}className='modal-play'>&#9658; Play</Link>
                     <button 
                         id='modal-add-list'
+                        
                         onClick={ this.toggleListItem }
                         >{listButton}</button>
                 </div>

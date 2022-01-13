@@ -6,11 +6,14 @@ import SignupFooter from './signup_footer';
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
+        const passedEmail = (typeof props.location.email === 'undefined' ? '' :
+            props.location.email) 
         this.state = {
-            email: this.props.location.email,
+            email: passedEmail,
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        props.resetSessionErrors();
     }
 
     update(field) {
@@ -21,16 +24,25 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.resetSessionErrors();
         const user = Object.assign({}, this.state);
         this.props.signup(user)
             // .then(() => this.props.history.push('/browse'))
     }
 
+    // componentDidUpdate() {
+        
+    //     this.props.resetSessionErrors();
+    // }
+
     render() {
+        // debugger
+        // this.props.resetSessionErrors();
         const emailFilled = this.state.email === '' ? '' : 'filled';
         const passFilled = this.state.password === '' ? '' : 'filled';
-        const errors = this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
-        
+        const passError = this.props.errors.filter(error => error.includes('Password'));
+        const emailError = this.props.errors.filter(error => error.includes('Email'));
+ 
         return (
             <div className='signup-main'>
                 <SplashHeader />
@@ -50,7 +62,7 @@ class SignupForm extends React.Component {
                                 />
                                 <label id={emailFilled}>Email</label>
                             </div>
-                            
+                            <p className='signup-error'>{emailError[0]}</p>
                        
 
                             <div className='signup-input-container'>
@@ -61,8 +73,8 @@ class SignupForm extends React.Component {
                                 />
                                 <label id={passFilled}>Add a password</label>
                             </div>
-                        
-                        <ul className='error-list'>{errors}</ul>
+                            <p className='signup-error'>{passError}</p>
+                       
                         <button className='signup-btn' type='submit'>Sign Up</button>
                         {/* <button onClick={this.demoUser}>Login as Demo User</button> */}
                     </form>

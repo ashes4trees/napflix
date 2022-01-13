@@ -173,9 +173,13 @@ class MovieDetail extends React.Component {
                                 <button 
                                     id='details-add-list'
                                     onClick={this.toggleListItem}
-                                    >{listButton}</button>
+                            >{listButton}</button>
                             </div>
-                            <button onClick={this.toggleModal} id='details-info-btn'>
+                            <button 
+                                
+                                title='More Info'
+                                onClick={this.toggleModal} 
+                                id='details-info-btn'>
                                 <p>&#8964;</p>
                             </button>
                         
