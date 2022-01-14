@@ -28,4 +28,6 @@ Each profile has a unique My List to help the user keep track of movies they'd l
 ### 4. Search
 A search feature within the navigation bar allows a user to find movies by title, genre, or summary keywords. The search is responsive, with results changing as the user types. 
 
+![Search for movies](app/assets/images/readme/search_demo.gif)
+
 
