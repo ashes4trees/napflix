@@ -11,12 +11,10 @@ class GenreList extends React.Component {
             delta: 200,
             leftArrow: -100,
             rightArrow: 75,
-            // items: 1
         };
 
         this.scrollLeft = this.scrollLeft.bind(this);
         this.scrollRight = this.scrollRight.bind(this);
-        // this.itemCount = this.itemCount.bind(this);
         
     };
 
@@ -41,14 +39,11 @@ class GenreList extends React.Component {
     }
 
     scrollLeft(e) {
-        
         const lastItem = e.currentTarget.parentElement.lastElementChild.previousElementSibling
         const coord = lastItem.getBoundingClientRect();
         if (window.innerWidth - coord.right >= 20) {
             return false
         } else {
-            // const list = e.currentTarget.parentElement.offsetLeft; 
-            
             const leftArrow = document.getElementById('left-arrow');
             const rightArrow = document.getElementById('right-arrow');
             this.setState({xoffset: this.state.xoffset -= this.state.delta});
@@ -57,16 +52,10 @@ class GenreList extends React.Component {
         }
     }
 
-    // itemCount(e) {
-    //     this.setState({items: e.currentTarget.children.length - 2 });
-    // }
-
-
     scrollRight(e) {
         if (this.state.xoffset === 75) {
             return false
         } else {
-            // const list = e.currentTarget.parentElement.offsetLeft
             const rightArrow = document.getElementById('right-arrow');
             const leftArrow = document.getElementById('left-arrow');
             this.setState({ xoffset: this.state.xoffset += this.state.delta });
