@@ -1,4 +1,5 @@
-# Napflix
+
+![Napflix](/app/assets/images/napflix_logo.png)
 ![Napflix](/app/assets/images/readme/napflix_browse_top.png)
 Napflix is a fully-functioning clone of Netflix, consisting entirely of sleep- and dream-themed movie trailers. It was created in just two weeks using the following: 
 
