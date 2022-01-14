@@ -5,14 +5,18 @@ import { logout } from '../../actions/session_actions';
 import { resetCurrentProfile } from "../../actions/profile_actions";
 import { fetchMovies, createListItem, deleteListItem } from "../../actions/movie_actions";
 
-const mSTP = state => ({
+
+const mSTP = state => {
+    // const max = Object.values(state.entities.movies).length - 1;
+    // const number = Math.floor(Math.random() * max);
+    return {
     movies: state.entities.movies,
     genres: Object.values(state.entities.genres),
     tags: Object.values(state.entities.tags),
     topMovie: Object.values(state.entities.movies)[3],
     currentProfileId: state.session.profileId,
     myList: Object.values(state.entities.myList)
-});
+}};
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),

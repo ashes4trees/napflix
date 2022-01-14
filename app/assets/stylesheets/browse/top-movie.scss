@@ -5,9 +5,9 @@
 
 .top-movie h1 {
     width: 30%;
-   
-    position: absolute;
-    bottom: 50vh;
+    z-index: 4;
+    position: relative;
+    top: -50vh;
     font-size: 40px;
     font-weight: bold;
     color: red;
@@ -15,9 +15,9 @@
 }
 
 .top-movie-btns {
-   
-    position: absolute;
-    bottom: 40vh;
+   z-index: 4;
+    position: relative;
+    top: -45vh;
     display: flex;
     margin-left: 75px;
 
