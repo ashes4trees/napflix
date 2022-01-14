@@ -14,6 +14,7 @@ Check out the site [here](http://napflix.herokuapp.com/).
 ### 1. Profiles
 As with Netflix, a  Napflix user can create, edit, and delete profiles, allowing multiple people to share a single 'account' and curate their individual My Lists.
 
+![Adding a new profile](app/assets/images/readme/add_profile_demo.gif)
 
 ### 2. Browse
 Upon signing in and selecting a profile, a user is taken to the main movie browse page, on which movies are organized by genre. They can see additional information about each title by hovering over its thumbnail, which also autoplays the associated trailer. From there, the user can play the video in fullscreen, add it to their My List, or click for more information, which opens a larger modal that includes the film's length and summary. 
@@ -28,6 +29,6 @@ Each profile has a unique My List to help the user keep track of movies they'd l
 ### 4. Search
 A search feature within the navigation bar allows a user to find movies by title, genre, or summary keywords. The search is responsive, with results changing as the user types. 
 
-![Search for movies](app/assets/images/readme/search_demo.gif)
+![Searching for movies](app/assets/images/readme/search_demo.gif)
 
 
