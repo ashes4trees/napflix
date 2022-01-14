@@ -69,5 +69,7 @@ To allow a user to search by title, genre, or summary keyword required multiple 
             />
         ) : null;
 ```
+### Bonus Features
 
+In the future, I intend to allow a user to customize their avatars and set their autoplay preferences. Additionally, I will add functionality for liking and disliking movies and providing recommendations based on that data.
 
