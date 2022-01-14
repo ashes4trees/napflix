@@ -7,6 +7,7 @@ Napflix is a fully-functioning clone of Netflix, consisting entirely of sleep- a
 * Frontend: React-Redux
 * Hosting: Heroku
 * Storage: AWS S3
+* Languages: Ruby, Javascript, CSS, HTML
 
 Check out the site [here](http://napflix.herokuapp.com/). 
 
