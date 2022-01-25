@@ -29,8 +29,6 @@ class SignupForm extends React.Component {
            
     }
 
- 
-
     render() {
        
         const emailFilled = this.state.email === '' ? '' : 'filled';
