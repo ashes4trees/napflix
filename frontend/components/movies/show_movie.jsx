@@ -48,7 +48,6 @@ class ShowMovie extends React.Component {
                 <video
                     autoPlay
                     muted
-                    // onPlaying={this.unmute}
                     className='show-movie'
                     src={this.props.currentMovie.videoUrl}
                     controls width='1000'></video>

@@ -7,8 +7,6 @@ import { fetchMovies, createListItem, deleteListItem } from "../../actions/movie
 
 
 const mSTP = state => {
-    // const max = Object.values(state.entities.movies).length - 1;
-    // const number = Math.floor(Math.random() * max);
     return {
     movies: state.entities.movies,
     genres: Object.values(state.entities.genres),

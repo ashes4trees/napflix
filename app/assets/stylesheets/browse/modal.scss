@@ -58,9 +58,7 @@
     width: 1000;
     z-index: 60;
     opacity: 0;
-
 }
-
 
 .exit-modal {
     position: absolute;
@@ -180,11 +178,9 @@
 
 .left-details > div{
     font-size: 18px;
-    // padding-left: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
     width: 50%;
     height: fit-content;
 }
@@ -212,7 +208,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
 }
 
 .modal-tags p {

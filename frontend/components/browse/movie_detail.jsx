@@ -26,19 +26,15 @@ class MovieDetail extends React.Component {
     }
 
     autoplay(e) {
-        
-        
         const video = e.currentTarget.children[1].children[1];
-       
-        video.previousElementSibling.classList.remove('invisible');
-        video.nextElementSibling.classList.remove('invisible');
-        video.classList.remove('idle');
-        video.parentElement.previousElementSibling.classList.add('invisible');
-        this.state.sound ? video.muted = false : video.muted = true
-       
-        
-        setTimeout(() => video.play(), 1000);
-
+        video.currentTime = 0;
+        setTimeout(() => {
+            video.classList.remove('idle');
+            video.nextElementSibling.classList.remove('invisible');
+            video.previousElementSibling.classList.remove('invisible');
+            this.state.sound ? video.muted = false : video.muted = true
+            video.play();
+        }, 2000);
     }
 
     stop(e) {
@@ -88,7 +84,6 @@ class MovieDetail extends React.Component {
 
     onEnd(e) {
         e.currentTarget.classList.add('idle');
-
         e.currentTarget.parentElement.previousElementSibling.classList.remove('invisible');
 
     }
@@ -153,7 +148,7 @@ class MovieDetail extends React.Component {
                             className='thumbnail-vid idle'
                             src={this.props.movie.videoUrl}
                             type='video/mp4'
-                            // onEnded={this.onEnd}
+                            onEnded={this.onEnd}
                         ></video>
 
                         

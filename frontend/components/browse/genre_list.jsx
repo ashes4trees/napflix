@@ -82,7 +82,6 @@ class GenreList extends React.Component {
             ) : null;
         return (
                 <div className='genre-list' 
-                    // onLoad={this.itemCount}
                     style ={{
                         position: "relative",
                         left: `${this.state.xoffset}px`}}
