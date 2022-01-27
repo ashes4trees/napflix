@@ -39,9 +39,11 @@ class ManageProfiles extends React.Component {
         this.props.fetchProfiles(this.props.userId);
     }
 
-    handleDelete(profileId) {
-        this.props.deleteProfile(profileId);
-        setTimeout(() => this.setState({ show: 'profiles' }), 4000);
+    async handleDelete(profileId) {
+        await this.props.deleteProfile(profileId);
+        await this.props.fetchProfiles(this.props.userId);
+        this.setState({show: 'profiles'});
+        // setTimeout(() => this.setState({ show: 'profiles' }), 4000);
     }
 
 

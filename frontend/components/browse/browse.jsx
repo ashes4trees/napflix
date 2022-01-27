@@ -29,6 +29,7 @@ class Browse extends React.Component {
                     userId={this.props.currentUserId}
                     fetchProfiles={this.props.fetchProfiles}
                     handleClick={this.handleClick}
+                    createProfile={this.props.createProfile}
                 />  
              : 
             <div>

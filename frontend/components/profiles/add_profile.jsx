@@ -27,7 +27,7 @@ class AddProfile extends React.Component {
                 {user_id: this.state.user_id,
                 name: this.state.name
                 });
-            dispatch(createProfile(profile));
+            this.props.createProfile(profile);
             window.location.reload();
         } 
     }

@@ -63,6 +63,7 @@ class ProfilesIndex extends React.Component {
             <div>
                 <AddProfile 
                 userId={this.props.userId}
+                createProfile={this.props.createProfile}
                 handleCancel={this.handleCancel}/>
                
             </div>
