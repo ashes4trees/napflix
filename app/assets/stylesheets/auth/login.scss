@@ -2,10 +2,10 @@
     background-image: 
         linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%),
         linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%),
-        image-url('netflix_bg.jpeg');
-    background-position: left;
+        image-url('napflix_bg.png');
+    background-size: cover;
     width: auto;
-    height: 100vh;
+    height: 90vh;
 }
 
 .login-container {
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     width: 20%;
-    height: 50%;
+    height: fit-content;
     align-items: flex-start;
     justify-content: space-evenly;
     margin: 0 auto;
@@ -32,10 +32,8 @@
 }
 
 .login-container h2 {
-    padding-top: 10px;
     color: white;
     font-size: 40px;
-    margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 0px
 }
