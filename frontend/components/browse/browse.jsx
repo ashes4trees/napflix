@@ -39,10 +39,7 @@ class Browse extends React.Component {
         
         
         return (
-        
-            display
-        
-                
+            display   
         )
     }
 }

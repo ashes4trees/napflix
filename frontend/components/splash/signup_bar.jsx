@@ -12,7 +12,7 @@ class SignupBar extends React.Component {
     };
 
     update(field) {
-        return e => this.setState( {[field]: e.currentTarget.value})
+        return e => this.setState( {[field]: e.currentTarget.value});
     };
 
     handleClick(e) {
@@ -26,12 +26,10 @@ class SignupBar extends React.Component {
         const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
         
         if (valid.test(email)) {
-            this.props.history.push({ pathname: `/signup`, email: email })
+            this.props.history.push({ pathname: `/signup`, email: email });
         } else {
-            this.setState({error: 'Please enter a valid email.'})
+            this.setState({error: 'Please enter a valid email.'});
         }
-
-        
     }
     
     render() {
@@ -39,9 +37,9 @@ class SignupBar extends React.Component {
         return (
             <div className='signup-container'>   
                 <section className='signup-text'>
-                    <h2>Unlimited movies, TV shows, and more.</h2>
-                    <p>Watch anywhere. Cancel anytime.</p> 
-                    <p>Ready to watch? Enter your email to create or restart your membership. </p>   
+                    <h2>Literally dozens of sleepy, dreamy movies.</h2>
+                    <p>Watch on the couch. Watch in bed.</p> 
+                    <p>Ready to watch? Enter your (real or fake) email to create an account.</p>   
                 </section>
                   
                 <form className='signup-bar-form' onSubmit={this.handleSubmit}>
@@ -49,7 +47,6 @@ class SignupBar extends React.Component {
                         <input
                             className='email-input'
                             type="email"
-                            // onClick={this.handleClick()}
                             onChange={this.update('email')}
                         />
                         <label id={filled}>Email address</label>

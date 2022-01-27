@@ -20,11 +20,11 @@ class ProfilesIndex extends React.Component {
     }
 
     handleClick() {
-        this.setState({show: 'add profile'})
+        this.setState({show: 'add profile'});
     }
 
     handleCancel() {
-        this.setState({ show: 'profiles'})
+        this.setState({ show: 'profiles'});
     }
 
     render() {
@@ -52,10 +52,7 @@ class ProfilesIndex extends React.Component {
                 <ul className='profiles-list'>
                     {profiles}
                     {addProfile}
-                    {/* <li className='add-profile-container' onClick={() => this.handleClick()}>
-                        <img id='add-profile' src={window.addProfile}/>
-                        <p>Add Profile</p>
-                    </li> */}
+
                 </ul> 
                 <Link className='manage-link' to='/manageprofiles'>
                     <p className='manage'>Manage Profiles</p>
@@ -72,7 +69,6 @@ class ProfilesIndex extends React.Component {
 
         return display
          
-        
     }
 }
 

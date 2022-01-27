@@ -9,19 +9,19 @@ class EditProfile extends React.Component {
         this.state = { id: this.props.profile.id,
             name: this.props.profile.name,
             error: '' }
-        this.handleEditSubmit = this.handleEditSubmit.bind(this)
+        this.handleEditSubmit = this.handleEditSubmit.bind(this);
     }
 
     update(field) {
         return (e) => {
-            this.setState({ [field]: e.currentTarget.value })
+            this.setState({ [field]: e.currentTarget.value });
         }
     }
 
     handleEditSubmit(e) {
         e.preventDefault();
         if (this.state.name.length === 0) {
-            this.setState({ error: "Name can't be blank." })
+            this.setState({ error: "Name can't be blank." });
         } else {
             const updatedProfile = Object.assign({}, 
                 {id: this.state.id,

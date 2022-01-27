@@ -15,13 +15,13 @@ class AddProfile extends React.Component {
     }
 
     update(field) {
-       return e => this.setState({ [field]: e.currentTarget.value })
+       return e => this.setState({ [field]: e.currentTarget.value });
     }
 
     handleSubmit(e){
         e.preventDefault();
         if (this.state.name.length === 0) {
-            this.setState({error: "Name can't be blank."})
+            this.setState({error: "Name can't be blank."});
         } else {
             const profile = Object.assign({}, 
                 {user_id: this.state.user_id,
@@ -34,7 +34,7 @@ class AddProfile extends React.Component {
 
 
     render () {
-        const filled = this.state.name === '' ? '' : 'profile-filled'
+        const filled = this.state.name === '' ? '' : 'profile-filled';
         return (
             <div className='add-profile-main'>
                 <header>

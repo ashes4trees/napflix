@@ -15,14 +15,13 @@ const persistConfig = {
 const middlewares = [thunk];
 
 if (process.env.NODE_ENV !== "production") {
-    // must use 'require' (import only allowed at top of file)
     const { logger } = require("redux-logger");
     middlewares.push(logger);
 }
 
 
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 
 const configureStore = (preloadedState = {}) => {
@@ -31,8 +30,8 @@ const configureStore = (preloadedState = {}) => {
         preloadedState,
         applyMiddleware(...middlewares)
     )
-    const persistor = persistStore(store)
-    return { store, persistor}
+    const persistor = persistStore(store);
+    return { store, persistor};
 }
 
 export default configureStore;

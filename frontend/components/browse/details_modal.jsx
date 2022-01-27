@@ -35,7 +35,7 @@ class DetailsModal extends React.Component {
 
     soundOff(e) {
         const bool = this.state.sound ? false : true;
-        const opposite = bool ? false : true
+        const opposite = bool ? false : true;
         e.currentTarget.previousElementSibling.muted = opposite;
         this.setState({ sound: bool });
     }
@@ -44,7 +44,7 @@ class DetailsModal extends React.Component {
     convertLength(minutes) {
         const h = parseInt(minutes / 60);
         const m = minutes % 60;
-        return `${h} h ${m} m`
+        return `${h} h ${m} m`;
     }
 
     onEnd(e) {
@@ -55,17 +55,17 @@ class DetailsModal extends React.Component {
 
     onList() {
         const match = this.props.myList.filter(listItem => listItem.movie_id === this.props.movie.id);
-        return match.length > 0
+        return match.length > 0;
     }
 
     toggleListItem() {
         if (this.onList()) {
             const item = this.props.myList.filter(listItem =>
                 listItem.movie_id === this.props.movie.id
-            )
-            return this.props.deleteListItem(item[0].id)
+            );
+            return this.props.deleteListItem(item[0].id);
         } else {
-            return this.props.createListItem(this.props.movie.id, this.props.currentProfileId)
+            return this.props.createListItem(this.props.movie.id, this.props.currentProfileId);
         }
     }
 

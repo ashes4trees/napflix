@@ -22,9 +22,6 @@ const sessionReducer = (state = _nullSession, action) => {
         case RESET_CURRENT_PROFILE:
             nextState['profileId'] = null;
             return nextState;
-        // case RECEIVE_MOVIE:
-        //     nextState['currentMovie'] = action.movie;
-        //     return nextState;
         case LOGOUT_CURRENT_USER:
             return _nullSession;
         default:

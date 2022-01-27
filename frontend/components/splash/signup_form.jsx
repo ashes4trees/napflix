@@ -17,7 +17,7 @@ class SignupForm extends React.Component {
 
     update(field) {
         return (e) => {
-            this.setState({ [field]: e.currentTarget.value })
+            this.setState({ [field]: e.currentTarget.value });
         }
     }
 
@@ -25,7 +25,7 @@ class SignupForm extends React.Component {
         e.preventDefault();
         this.props.resetSessionErrors();
         const user = Object.assign({}, this.state);
-        this.props.signup(user)
+        this.props.signup(user);
            
     }
 

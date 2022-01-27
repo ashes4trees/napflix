@@ -32,7 +32,7 @@ class MovieDetail extends React.Component {
             video.classList.remove('idle');
             video.nextElementSibling.classList.remove('invisible');
             video.previousElementSibling.classList.remove('invisible');
-            this.state.sound ? video.muted = false : video.muted = true
+            this.state.sound ? video.muted = false : video.muted = true;
             video.play();
         }, 2000);
     }
@@ -41,7 +41,7 @@ class MovieDetail extends React.Component {
         this.clearTimers();
         const video = e.currentTarget.children[1].children[1];
         video.pause();
-        video.classList.add('idle')
+        video.classList.add('idle');
         video.parentElement.previousElementSibling.classList.remove('invisible');
         video.previousElementSibling.classList.add('invisible');
         video.nextElementSibling.classList.add('invisible');
@@ -73,7 +73,7 @@ class MovieDetail extends React.Component {
     soundOff(e) {
         const bool = this.state.sound ? false : true;
         this.setState({ sound: bool });
-        const opposite = bool ? false : true
+        const opposite = bool ? false : true;
         e.currentTarget.previousElementSibling.muted = opposite;
     }
 
@@ -90,7 +90,7 @@ class MovieDetail extends React.Component {
 
     onList() {
         const match = this.props.myList.filter(listItem => listItem.movie_id === this.props.movie.id);
-        return match.length > 0
+        return match.length > 0;
     }
 
     toggleListItem() {
@@ -98,11 +98,11 @@ class MovieDetail extends React.Component {
         if (this.onList()) {
             const item = this.props.myList.filter(listItem => 
                 listItem.movie_id === this.props.movie.id
-                )
+                );
 
-            return this.props.deleteListItem(item[0].id)
+            return this.props.deleteListItem(item[0].id);
         } else {
-            return this.props.createListItem(this.props.movie.id, this.props.currentProfileId)
+            return this.props.createListItem(this.props.movie.id, this.props.currentProfileId);
         }
     }
 
@@ -110,10 +110,10 @@ class MovieDetail extends React.Component {
     render() {
      
         if (this.state.showModal) {
-            this.stopAll()
+            this.stopAll();
         }
         const tags = this.movieGenres();
-        const display = tags.map(tag => <p key={tag.id}>{tag.genre}</p> )
+        const display = tags.map(tag => <p key={tag.id}>{tag.genre}</p> );
         const modal = this.state.showModal ? 
             <DetailsModal 
                 myList={this.props.myList}

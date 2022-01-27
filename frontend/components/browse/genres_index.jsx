@@ -38,7 +38,7 @@ class GenresIndex extends React.Component {
     convertLength(minutes) {
         const h = parseInt(minutes / 60);
         const m = minutes % 60;
-        return `${h} h ${m} m`
+        return `${h} h ${m} m`;
     }
 
     movieGenres() {
@@ -49,7 +49,7 @@ class GenresIndex extends React.Component {
 
     render() {
         const tags = this.movieGenres();
-        const display = tags.map(tag => <p key={tag.id}>{tag.genre}</p>)
+        const display = tags.map(tag => <p key={tag.id}>{tag.genre}</p>);
         
         const genres = this.props.genres.map(genre =>
             <div key={genre.id} className='genre-name'>
@@ -121,7 +121,6 @@ class GenresIndex extends React.Component {
                 </div>
                 <div className='genres-browse'>
                     {myList}
-                   
                     {genres}
                 </div>
                 

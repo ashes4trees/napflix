@@ -10,7 +10,7 @@ class ShowMovie extends React.Component {
 
     showControls() {
         this.clearTimers();
-        const arrow = document.getElementById('back-arrow')
+        const arrow = document.getElementById('back-arrow');
         arrow.classList.remove('hidden');
         setTimeout(() => arrow.classList.add('hidden'), 3000);
     }
@@ -25,7 +25,7 @@ class ShowMovie extends React.Component {
     }
 
     unmute(e) {
-        e.currentTarget.muted = false
+        e.currentTarget.muted = false;
     }
 
     goBack() {

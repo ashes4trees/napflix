@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
 
     handleInput(type) {
         return (e) => {
-            this.setState({ [type]: e.target.value })
+            this.setState({ [type]: e.target.value });
         }
     }
 
@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
     render() {
         const filled = this.state.email === '' ? '' : 'filled';
         const passFilled = this.state.password === '' ? '' : 'filled';
-        const errors = this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)
+        const errors = this.props.errors.map((error, idx) => <li key={idx}>{error}</li>);
 
         return (
             <div>

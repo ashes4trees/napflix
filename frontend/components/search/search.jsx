@@ -10,7 +10,6 @@ class Search extends React.Component {
             movieMatches: [],
             genreMatches: []
         }
-        // this.updateSearch = this.updateSearch.bind(this);
         this.searchTitles = this.searchTitles.bind(this);
         this.searchGenres = this.searchGenres.bind(this);
     }
@@ -39,13 +38,13 @@ class Search extends React.Component {
             
             const genreIds = matchingGenres.map(genre => genre.id);
             
-            const matchingTags = []
+            const matchingTags = [];
             genreIds.forEach(id => 
                 matchingTags.push(this.props.tags.filter(tag => tag.genre_id === id)));
             
             const movieIds = matchingTags.flat().map(tag => tag.movie_id);
             
-            const matchingMovies = []
+            const matchingMovies = [];
             movieIds.forEach(id => 
                 matchingMovies.push(this.props.movies.filter(movie => 
                 movie.id === id)));

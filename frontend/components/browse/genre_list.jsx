@@ -42,7 +42,7 @@ class GenreList extends React.Component {
         const lastItem = e.currentTarget.parentElement.lastElementChild.previousElementSibling
         const coord = lastItem.getBoundingClientRect();
         if (window.innerWidth - coord.right >= 20) {
-            return false
+            return false;
         } else {
             const leftArrow = document.getElementById('left-arrow');
             const rightArrow = document.getElementById('right-arrow');
@@ -54,7 +54,7 @@ class GenreList extends React.Component {
 
     scrollRight(e) {
         if (this.state.xoffset === 75) {
-            return false
+            return false;
         } else {
             const rightArrow = document.getElementById('right-arrow');
             const leftArrow = document.getElementById('left-arrow');

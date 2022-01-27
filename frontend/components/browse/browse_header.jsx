@@ -5,7 +5,7 @@ class BrowseHeader extends React.Component {
     constructor(props) {
         super(props)
         const bool = props.history.location.pathname.startsWith('/search') ?
-            true : false
+            true : false;
         this.state = {
             search: '',
             searching: bool
@@ -18,7 +18,7 @@ class BrowseHeader extends React.Component {
     handleSwitch() {
       this.props.resetProfile();
       if (this.props.history.location.pathname.startsWith('/search')) {
-          this.props.history.push('/') 
+          this.props.history.push('/');
         } else {
           window.location.reload();
           } 
@@ -26,7 +26,7 @@ class BrowseHeader extends React.Component {
 
     handleManage() {
         this.props.resetProfile();
-        this.props.history.push('/manageprofiles')
+        this.props.history.push('/manageprofiles');
     }
 
     update(e) {
@@ -37,7 +37,7 @@ class BrowseHeader extends React.Component {
     }
 
     openSearch() {
-        this.props.history.push('/search')
+        this.props.history.push('/search');
         this.setState({searching: true});
     }
 

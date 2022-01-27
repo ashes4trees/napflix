@@ -6,11 +6,11 @@
 }
 .splash-main {
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%),
-        linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%),
-        image_url('netflix_bg.jpeg');
-    background-position: left;
+        linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%),
+        linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 60%),
+        image_url('napflix_bg.png');
     width: auto;
+    background-size: cover;
 }
 
 .splash-main {
