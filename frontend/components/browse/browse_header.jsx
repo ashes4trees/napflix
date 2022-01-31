@@ -90,6 +90,7 @@ class BrowseHeader extends React.Component {
                     <Link to='/browse/my-list'><p>My List</p></Link>
                     <a href='https://github.com/ashes4trees/napflix' target='_blank'>GitHub</a>
                     <a href='https://linkedin.com/in/steph-soni' target='_blank'>LinkedIn</a>
+                    <a href='https://stephaniesoni.com' target='_blank'>Portfolio</a>
 
                 </div>
                 <div className='right-nav'>

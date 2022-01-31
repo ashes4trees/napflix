@@ -76,7 +76,7 @@ class SignupForm extends React.Component {
                     <a href="mailto:stephsoni18@gmail.com" target='_blank'>Questions? Email me!</a>
                     <a href='https://github.com/ashes4trees/napflix' target='_blank'>GitHub</a>
                     <a href='https://linkedin.com/in/steph-soni' target='_blank'>LinkedIn</a>
-
+                    <a href='https://stephaniesoni.com' target='_blank'>Portfolio</a>
                 </div>
             </div>
         );

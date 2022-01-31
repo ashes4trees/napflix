@@ -42,6 +42,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .signup-text {
@@ -102,16 +103,19 @@
 }
 
 .signup-form-container {
-    padding: 5%;
+    padding-top: 5%;
     color: black;
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 50%;
+    height: 65vh;
     align-items: flex-start;
     justify-content: space-evenly;
     margin: 0 auto;
-    
+    border-top:  0.25px solid rgba(128, 128, 128, .4);
+    padding-right: 35%;
+    padding-left: 35%
+
 }
 
 .signup-form-container h2 {
